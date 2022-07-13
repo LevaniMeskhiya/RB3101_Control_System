@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_McStatusWord_2_ProfiDrive" Id="{0f573b2c-fb4f-4a05-8838-46824b67cf6d}">
+    <Declaration><![CDATA[TYPE ST_McStatusWord_2_ProfiDrive :
+STRUCT
+	Bit00_FaultB					: BOOL;
+	Bit01_FaultC 					: BOOL;
+	Bit02_FaultC 					: BOOL;
+	Bit03_FaultDWarning 			: BOOL;
+	Bit04_MRegActive				: BOOL;
+	Bit05_torqueRegEnable			: BOOL;
+	Bit06_ConverterI2tLinitWarning	: BOOL;
+	Bit07_ConverterI2tLinitActive	: BOOL;
+	Bit08_MotorI2tLinitWarning		: BOOL;
+	Bit09_MotorI2tLinitActive		: BOOL;
+	Bit10_ThHSWarning				: BOOL;
+	Bit11_ThHSMaxWarning			: BOOL;
+	Bit12_windingTempWarning		: BOOL;
+	Bit13_BearingTempWarning		: BOOL;
+	Bit14_Forward					: BOOL;
+	Bit15_Reverse					: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

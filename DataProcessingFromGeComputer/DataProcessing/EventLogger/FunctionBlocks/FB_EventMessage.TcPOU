@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_EventMessage" Id="{23a8ef0c-ff76-40c0-921a-e144cd25cd96}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_EventMessage
+VAR_INPUT
+    bEvent            : BOOL;
+    nEventID         : UDINT;
+    sSource            : STRING;
+    sArgument1        : STRING;
+    sArgument2        : STRING;
+    
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+    bIsInitialized     : BOOL;
+    
+    fbSourceInfo    : FB_TcSourceInfo;
+    fbMessage         : FB_TcMessage;
+    eventEntry        : TcEventEntry;
+    fbRtEvent        : R_TRIG;
+    
+    hr                 : HRESULT;
+    hrLastError        : HRESULT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+(* Initialization *)
+    IF NOT bIsInitialized THEN
+        bIsInitialized := TRUE;
+    (* This part is used to change events class depending on the ivent ID for example for Warning or for Info *)
+    IF nEventID < 16#2000 THEN
+        eventEntry := Tc_Events.ConvCommandEvents.CmdUnlockRamp_1;         // Converter Commands
+    ELSIF nEventID < 16#3000 THEN
+        eventEntry := Tc_Events.StatusWordEvents.StateOn_1;             // Converter Status Events
+    END_IF
+        eventEntry.nEventId := nEventID;
+        fbSourceInfo.Clear();
+        fbSourceInfo.sName := sSource;
+        hr := fbMessage.CreateEx(eventEntry, ipSourceInfo := fbSourceInfo);
+    END_IF
+    
+    IF FAILED(hr) THEN
+        hrLastError := hr;
+    END_IF 
+    
+    fbMessage.ipArguments.Clear().AddString(sArgument1).AddString(sArgument2);
+    
+(* event trigger *)
+    fbRtEvent(CLK := bEvent);
+    
+(* send message *)
+    IF fbRtEvent.Q THEN
+        hr := fbMessage.Send(0);
+        UtilityVariables.nEventsInEventLogger := UtilityVariables.nEventsInEventLogger + 1; // Counts the nuber of events stored in PLC ceche
+        IF FAILED(hr) THEN
+            hrLastError := hr;
+        END_IF
+    END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

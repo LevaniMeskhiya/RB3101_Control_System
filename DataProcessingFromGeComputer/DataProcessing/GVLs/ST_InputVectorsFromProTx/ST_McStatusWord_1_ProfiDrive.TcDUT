@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_McStatusWord_1_ProfiDrive" Id="{51037775-f316-4eae-aaaa-66db8e65dd3e}">
+    <Declaration><![CDATA[TYPE ST_McStatusWord_1_ProfiDrive :
+STRUCT
+	Bit00_StateReady			: BOOL;
+	Bit01_StateOn 				: BOOL;
+	Bit02_CtrlRun 				: BOOL;
+	Bit03_CollFault 			: BOOL;
+	Bit04_DriveReleaseActive	: BOOL;
+	Bit05_StateFastStop			: BOOL;
+	Bit06_StateDisable			: BOOL;
+	Bit07_Warning				: BOOL;
+	Bit08_SpeedCtrlLimited		: BOOL;
+	Bit09_BusSelected			: BOOL;
+	Bit10_XnIsEqualToWn			: BOOL;
+	Bit11_WiqTLimited			: BOOL;
+	Bit12_XnIsEqualToZero		: BOOL;
+	Bit13_NCtrlenable			: BOOL;
+	Bit14_ExtrnalTorqueRelease	: BOOL;
+	Bit15_MainAliveToggle		: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

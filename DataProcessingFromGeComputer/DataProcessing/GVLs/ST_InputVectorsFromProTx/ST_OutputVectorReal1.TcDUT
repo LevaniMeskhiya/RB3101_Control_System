@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_OutputVectorReal1" Id="{8f08e9ae-2e0c-4ea8-8489-35e6cb00b539}">
+    <Declaration><![CDATA[TYPE ST_OutputVectorReal1 :
+STRUCT
+	Element00_LcActualVauleOfUdc 					: REAL;
+	Element01_LcSmoothedConverterCurrent 			: REAL;
+	Element02_LcMeasuredMainsVoltage				: REAL;
+	Element03_LcActualHeatsinkTemp					: REAL;
+	Element04_LcMinimumHeatsinkTemp					: REAL;
+ 	Element05_LcCurrentReferenceValueInDAxis		: REAL;
+	Element06_LcReactiveCurrentFerenceValue			: REAL;
+	Element07_LcFilteredLineFrequency				: REAL;
+	Element08_LcActivePowerOfLineConverter			: REAL;
+	Element09_LcReactivePowerOfLineConverter		: REAL;
+	Element10_LcTestValue							: REAL;
+	Element11_McSumOfPowerReference					: REAL;
+	Element12_McSmoothedConverterCurrent			: REAL;
+	Element13_McInverterOutputVoltage				: REAL;
+	Element14_McSumOfTorqueReference				: REAL;
+	Element15_McMeasuredOrEstimatedSpeed			: REAL;
+	Element16_McActualHeatsinkTemp					: REAL;
+	Element17_McMinimumHeatsinkTemp					: REAL;
+	Element18_McMaxvalueOfTwoMeasuredBearingTemp	: REAL;
+	Element19_McMaxvalueOfThreeMeasuredWindingTemp	: REAL;
+	Element20_McReferenceValueOfIq					: REAL;	
+	Element21_McActualValueOfIq						: REAL;	
+	Element22_McReferenceValueOfId					: REAL;	
+	Element23_McActualValueOfId						: REAL;
+	Element24_McIntegratorOutputOfConverterI2t		: REAL;
+	Element25_McIntegratorOutputOfMotorI2t			: REAL;
+	Element26_McTestValue							: REAL;			
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

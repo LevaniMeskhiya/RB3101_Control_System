@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_LcFaultWord3" Id="{cdb17806-30df-4ec0-ad38-b331e9fc8eca}">
+    <Declaration><![CDATA[TYPE ST_LcFaultWord3 :
+STRUCT
+	Bit00_ULineVoltage 				: BOOL;
+	Bit01_ULineMeasurement			: BOOL;
+	Bit02_AcFuse	 				: BOOL;
+	Bit03_FbLineContactor	 		: BOOL;
+	Bit04_Charging	 				: BOOL;
+	Bit05_LineFilter 				: BOOL;
+	Bit06_uu		 				: BOOL;
+	Bit07_uu						: BOOL;
+	Bit08_uu						: BOOL;
+	Bit09_uu						: BOOL;
+	Bit10_uu						: BOOL;
+	Bit11_uu						: BOOL;
+	Bit12_uu						: BOOL;
+	Bit13_uu						: BOOL;
+	Bit14_uu						: BOOL;
+	Bit15_uu						: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

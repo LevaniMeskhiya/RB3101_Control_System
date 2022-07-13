@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_LcStatusWord_1_ProfiDrive" Id="{c60609fa-6490-4d0d-b3ad-6fb09dab9e36}">
+    <Declaration><![CDATA[TYPE ST_LcStatusWord_1_ProfiDrive :
+STRUCT
+	Bit00_StateReady			: BOOL;
+	Bit01_StateOn 				: BOOL;
+	Bit02_CtrlRun 				: BOOL;
+	Bit03_CollFault 			: BOOL;
+	Bit04_DriveReleaseActive	: BOOL;
+	Bit05_StatePowerOk			: BOOL;
+	Bit06_StateDisable			: BOOL;
+	Bit07_Warning				: BOOL;
+	Bit08_PhaseLoss				: BOOL;
+	Bit09_BusSelected			: BOOL;
+	Bit10_uu					: BOOL;
+	Bit11_uu					: BOOL;
+	Bit12_ReleaseMc				: BOOL;
+	Bit13_StateTestModeOn		: BOOL;
+	Bit14_InternalAliveToggle	: BOOL;
+	Bit15_MainAliveToggle		: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

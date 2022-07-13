@@ -1,0 +1,2072 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32">
+	<Translations>
+		<Text TxtId="{0} {1} Command ON [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl EIN [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command ON [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl EIN [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Drive Release [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Antriebsfreigabe [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Drive Release [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Antriebsfreigabe  [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command not Fast Stop [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Schnellhalt [+]]]></Text>
+			<Text LcId="1033"><![CDATA[{0} {1} Command Fast Stop [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command not Fast Stop [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Schnellhalt [-]]]></Text>
+			<Text LcId="1033"><![CDATA[{0} {1} Command Fast Stop [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Pulse Release [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Pulsfreigabe [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Enable Ramp [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Rampe Freigeben [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Enable Ramp [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Rampe Freigeben [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Unlock Ramp [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Rampe Freischalten [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Unlock Ramp [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Rampe Freischalten [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Forward [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Rechts [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Forward [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Rechts [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Quit [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Quit [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Inching 1 [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Inching 1 [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Inching 1 [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Inching 1 [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Inching 2 [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Inching 2 [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Inching 2 [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Inching 2 [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Control by PLC [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Steuerung durch PLC [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Control by PLC [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Steuerung durch PLC [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Integrator Speed Ctrl Disable [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Integrator Speed Ctrl Deaktivieren [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Torque Ctrl Mode Active [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Torque Ctrl Modus aktiv [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Gain Speed Ctrl Changeover [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Verst�rkung Speed Ctrl Umschaltung [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Gain Speed Ctrl Changeover [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Verst�rkung Speed Ctrl Umschaltung [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Drooping [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Drooping [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Trq Controller Enable [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Trq Controller Freigabe [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Trq Controller Enable [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Trq Controller Freigabe [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Trq Ref Enable [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Trq Ref Freigabe [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Trq Ref Enable [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Trq Ref Freigabe [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command ETPS Enable [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl ETPS Freigabe [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command ETPS Enable [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl ETPS Freigabe [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command ETPS Input Source Selec [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl ETPS Eingangsquelle w�hlen [+]]]></Text>
+			<Text LcId="1033"><![CDATA[{0} {1} Command ETPS Input Source Select [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command ETPS Input Source Selec [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl ETPS Eingangsquelle w�hlen [-]]]></Text>
+			<Text LcId="1033"><![CDATA[{0} {1} Command ETPS Input Source Select [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Inertia Comp Enable [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Tr�gheitskompensation freigeben [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Inertia Comp Enable [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Tr�gheitskompensation freigeben [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command External Motor Fan OFF [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Externer Motor L�fter AUS [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command External Motor Fan OFF [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Externer Motor L�fter AUS [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Reverse [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Links [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Reverse [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Links [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Brake Control [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Bremsensteuerung [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Brake Control [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Bremsensteuerung [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Brake Test Mode [+]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Bremstest-Modus [+]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Brake Test Mode [-]">
+			<Text LcId="1031"><![CDATA[{0} {1} Befehl Bremstest-Modus [-]]]></Text>
+		</Text>
+		<Text TxtId="{0} {1} Command Pulse Release  [-]"/>
+		<Text TxtId="{0} {1} Quit [-]"/>
+		<Text TxtId="{0} {1} Command Integrator Speed Ctrl Disable  [-]"/>
+		<Text TxtId="{0} {1} Command Torque Ctrl Mode Active  [-]"/>
+		<Text TxtId="{0} {1} Command Drooping  [+]"/>
+	</Translations>
+	<DataTypes>
+		<DataType>
+			<Name GUID="{203D801B-3313-4950-A7E8-2522693CEB79}" PersistentType="true">ConvCommandEvents</Name>
+			<DisplayName TxtId=""><![CDATA[NewEventClass_DisplayText]]></DisplayName>
+			<EventId>
+				<Name Id="#x1000">CmdOn_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command ON [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1001">CmdOn_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command ON [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1002">CmdDriveRelease_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Drive Release [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1003">CmdDriveRelease_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Drive Release [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1004">CmdNotFastStop_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command not Fast Stop [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1006">CmdNotFastSto_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command not Fast Stop [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1007">CmdPulseRelease_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Pulse Release [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1008">CmdPulseRelease_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Pulse Release  [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1009">CmdEnableRamp_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Enable Ramp [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100A">CmdEnableRamp_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Enable Ramp [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100B">CmdUnlockRamp_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Unlock Ramp [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100C">CmdUnlockRamp_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Unlock Ramp [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100D">CmdForward_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Forward [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100E">CmdForward_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Forward [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100F">CmdInching1_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Inching 1 [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1010">CmdInching1_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Inching 1 [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1011">CmdInching2_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Inching 2 [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1012">CmdInching2_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command Inching 2 [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1013">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1014">Cmd_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="21">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="22">&lt;EventId&gt;</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="23">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="24">ConvCommandEventsEvent24</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="25">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="26">ConvCommandEventsEvent26</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="27">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="28">ConvCommandEventsEvent28</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="29">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="30">ConvCommandEventsEvent30</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="31">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="32">ConvCommandEventsEvent32</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="33">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="34">ConvCommandEventsEvent34</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="35">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="36">ConvCommandEventsEvent36</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="37">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="38">ConvCommandEventsEvent38</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="39">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="40">ConvCommandEventsEvent40</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="41">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="42">ConvCommandEventsEvent42</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="43">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="44">ConvCommandEventsEvent44</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="45">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="46">ConvCommandEventsEvent46</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="47">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="48">ConvCommandEventsEvent48</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="49">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="50">ConvCommandEventsEvent50</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="51">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="52">ConvCommandEventsEvent52</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="53">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="54">ConvCommandEventsEvent54</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="55">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="56">ConvCommandEventsEvent56</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="57">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="58">ConvCommandEventsEvent58</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="59">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="60">ConvCommandEventsEvent60</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="61">Cmd_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0}{1} Command [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{4E5E1AA6-DB53-4509-8864-BFB88CA05972}"/>
+				<Hide GUID="{AEB6A3E3-1578-43CA-BA23-A196F1014E82}"/>
+				<Hide GUID="{B771FB11-588F-49C6-895B-D7197B26214D}"/>
+				<Hide GUID="{81831876-91A4-4688-B4D7-4A096A339623}"/>
+				<Hide GUID="{166DD271-0D47-40D7-B6A5-272CC4132C60}"/>
+				<Hide GUID="{BCCA819C-E67D-4CD3-A406-9439E50974C2}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{489D5B89-414F-4809-8D39-024920DE7556}" PersistentType="true">StatusWordEvents</Name>
+			<DisplayName TxtId=""><![CDATA[NewEventClass_DisplayText]]></DisplayName>
+			<EventId>
+				<Name Id="#x2000">StateReady_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} State Ready  [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2001">StateReady_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} State Ready [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2002">StateOn_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} State ON [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2003">StateOn_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} State ON [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2004">CtrlRun_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Ctrl RUN  [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2005">CtrlRun_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Ctrl RUN [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2006">GeneralFault_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} General Fault [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2007">GeneralFault_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} General Fault [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2008">DriveReleaseActive_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Drive Release Active [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2009">DriveReleaseActive_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Drive Release Active [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x200A">StateFASTSTOP_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} State FASTSTOP  [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x200B">StateFASTSTOP_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} State FASTSTOP  [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x200C">StateDISABLE_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} State DISABLE [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x200D">StateDISABLE_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} State DISABLE [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x200E">WARNING_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} WARNING [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x200F">WARNING_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} WARNING [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2010">SpeedCtrlLimited_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Speed Ctrl Limited [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2011">SpeedCtrlLimited_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Speed Ctrl Limited [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2012">BusSelected_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Bus Selected [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2013">BusSelected_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Bus Selected [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2014">XnEqualsWn_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} XN=WN [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2015">XnEqualsWn_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} XN=WN [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2016">WiqTLimited_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} WiqT Limited [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2017">WiqTLimited_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} WiqT Limited [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2018">WnIsZero_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} WN = 0 [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2019">WnIsZero_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} WN = 0  [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x201A">nCtrlEnabled_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} n-Ctrl Enabled [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x201B">nCtrlEnabled_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} n-Ctrl Enabled [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x201C">ExtTorqueReleased_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Ext Torque Released [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x201D">ExtTorqueReleased_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Ext Torque Released [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x201E">FaultB_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fault B [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x201F">FaultB_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fault B [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2020">FaultC_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fault C [+]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2021">FaultC_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fault C [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2022">FaultD_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fault D [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2023">FaultD_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fault D [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2024">FaultDWarning_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fault D Warning [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2025">FaultDWarning_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fault D Warning [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2026">MRegActive_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} M Reg Active [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2027">MRegActive_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} M Reg Active [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2028">TorqueRegEnabled_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Torque Reg Enabled [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2029">TorqueRegEnabled_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Torque Reg Enabled [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x202A">ConverterI2tWarning_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Converter I2t Warning [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x202B">ConverterI2tWarning_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Converter I2t Warning [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x202C">ConverterI2tLimitActive_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Converter I2t Limit active [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x202D">ConverterI2tLimitActive_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Converter I2t Limit active [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x202E">MotorI2tWarning_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Motor I2t Warning [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x202F">MotorI2tWarning_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Motor I2t Warning [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2030">MotorI2tLimitActive_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Motor I2t Limit Active [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2031">MotorI2tLimitActive_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Motor I2t Limit Active [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2032">ThHSWarning_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} ThHS Warning [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2033">ThHSWarning_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} ThHS Warning [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2034">ThHSMaxWarning_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} ThHS Max Warning [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2035">ThHSMaxWarning_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} ThHS Max Warning [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2036">WindingTemp_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Winding Temp [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2037">WindingTemp_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Winding Temp [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2038">BearingTemp_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Bearing Temp [+]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x2039">BearingTemp_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Bearing Temp [-]]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x203A">FORWARD_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} FORWARD [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x203B">FORWARD_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} FORWARD [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x203C">REVERSE_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} REVERSE [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x203D">REVERSE_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} REVERSE [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{84C51AEE-AB2A-4F8C-AECE-B8A92C54A519}"/>
+				<Hide GUID="{B3688CD8-AD81-4379-93F3-6A1B53E133FB}"/>
+				<Hide GUID="{A186E076-AC89-42E9-8684-3FE8F39E9D16}"/>
+				<Hide GUID="{8525BE32-DFA4-4C90-B6E2-8BFAF6415CE5}"/>
+				<Hide GUID="{5E71C322-FD56-4765-B4F1-FA394546C3A3}"/>
+				<Hide GUID="{5AF4BB6F-4E4E-4090-BCE3-35930EB0FA6E}"/>
+				<Hide GUID="{B4D538A8-A7D2-47B3-9C3D-53997446FB2A}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{2A4BACB3-23AE-4035-B2A1-B9F12039C76F}" PersistentType="true">ConvFaultEvents</Name>
+			<DisplayName TxtId=""><![CDATA[NewEventClass_DisplayText]]></DisplayName>
+			<EventId>
+				<Name Id="#x3000">EcatOperation_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} ECAT Operation [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3001">EcatOperation_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} ECAT Operation  [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3002">FpgaVersion_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} FPGA Version [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3003">FpgaVersion_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} FPGA Version [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3004">PibWatchdog_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Watchdog [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3005">PibWatchdog_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Watchdog [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3006">DcLinkOvervoltage_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} DC Link overvoltage [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3007">DcLinkOvervoltage_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} DC Link Overvoltage [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3008">PibUce_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB UCE [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3009">PibUce_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB UCE [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x300A">PibSupplyVoltage_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Supply Voltage [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x300B">PibSupplyVoltage_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Supply Voltage [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x300C">PibMeasurementConnectorX15X21_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Measurement-connector (X15 / X21) [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x300D">PibMeasurementConnectorX15X21_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Measurement-connector (X15 / X21) [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x300E">PibFaultLoop_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Fault Loop [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x300F">PibFaultLoop_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Fault Loop [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3010">PibAmplifierConnection_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Amplifier Connection [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3011">PibAmplifierConnection_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Amplifier Connection [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3012">PibTerminalSupply_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Terminal Supply [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3013">PibTerminalSupply_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Terminal Supply [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3014">PibCurrentClipping_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Current Clipping [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3015">PibCurrentClipping_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Current Clipping [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3016">PibShortCircuit_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Short Circuit [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3017">PibShortCircuit_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Short Circuit [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3018">DcConnectionInterrupt_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} DC Connection Interrupt [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3019">DcConnectionInterrupt_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} DC Connection Interrupt [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x301A">OvertemperatureHeatsink_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Overtemperature Heatsink [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x301B">OvertemperatureHeatsink_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1}  Overtemperature Heatsink [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x301C">ShortCircuit24V_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Short Circuit 24V [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x301D">ShortCircuit24V_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Short Circuit 24V [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x301E">FieldbusConnection_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fieldbus Connection [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x301F">FieldbusConnection_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fieldbus Connection [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3020">FastlinkRxFromLc_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fastlink Rx from LC [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3021">FastlinkRxFromLc_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Fastlink-Rx from LC [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3022">ShortCircuitEarth_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Short Circuit Earth  [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3023">ShortCircuitEarth_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Short Circuit Earth [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3024">UdcMin_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Udc min [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3025">UdcMin_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Udc min [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3026">PibAmplifierConnectorRChopper_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Amplifier Connector R Chopper [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3027">PibAmplifierConnectorRChopper_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB Amplifier Connector R Chopper [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3028">ExternalFault_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} External Fault [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3029">ExternalFault_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} External Fault [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x302A">Encoder_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Encoder [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x302B">Encoder_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Encoder [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x302C">RotorLocked_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Rotor Locked [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x302D">RotorLocked_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Rotor Locked [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x302E">Overspeed_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Overspeed [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x302F">Overspeed_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Overspeed [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3030">Brake_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Brake [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3031">Brake_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Brake [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3032">InterlockRotating_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Interlock Rotating [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3033">InterlockRotating_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Interlock Rotating  [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3034">OutputSwitchesFeedbackTimeout_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Output Switches Feedback Timeout [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3035">OutputSwitchesFeedbackTimeout_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Output Switches Feedback Timeout [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3036">OutputOutOfRange_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Output Out Of Range [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3037">OutputOutOfRange_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Output Out Of Range [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3038">OutputSwitchControlOnSequence_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Output Switch Control On Sequence [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3039">OutputSwitchControlOnSequence_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Output Switch Control On Sequence [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x303A">McPib1OutputVoltageTrip_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} MC PIB1 Output Voltage Trip [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x303B">McPib1OutputVoltageTrip_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} MC PIB1 Output Voltage Trip [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x303C">FL2ToCorrespondingUnitDoesNotWork_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} FL2 To Corresponding Unit Does Not Work [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x303D">FL2ToCorrespondingUnitDoesNotWork_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} FL2 To Corresponding Unit Does Not Work [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x303E">EcGeneralFAULT_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} EC General FAULT [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x303F">EcGeneralFAULT_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} EC General FAULT [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3040">PsmLossAbsoluteRotorAngle_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PSM Loss Absolute Rotor Angle [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3041">PsmLossAbsoluteRotorAngle_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PSM Loss Absolute Rotor Angle [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3042">HeagSpeedFault_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} HEAG Speed Fault [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3043">HeagSpeedFault_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} HEAG Speed Fault [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3044">PibIgbtAcknowledge_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB IGBT Acknowledge [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3045">PibIgbtAcknowledge_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} PIB IGBT Acknowledge [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3046">DccSeriesUnitNotOperational_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} DCC Series unit not operational [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3047">DccSeriesUnitNotOperational_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} DCC Series unit not operational [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3048">NtcFault_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} NTC Fault [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3049">NtcFault_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} NTC Fault [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x304A">LowTemperatureHeatsink_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Low Temperature Heatsink [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x304B">LowTemperatureHeatsink_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Low Temperature Heatsink [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x304C">ControllerCabinetFanSupply_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Controller Cabinet Fan Supply [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x304D">ControllerCabinetFanSupply_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Controller Cabinet Fan Supply [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x304E">ConverterCubicleOvertemperature_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Converter Cubicle Overtemperature [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x304F">ConverterCubicleOvertemperature_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Converter Cubicle Overtemperature [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3050">CubicleAuxiliarySupply_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Cubicle Auxiliary Supply [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3051">CubicleAuxiliarySupply_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Cubicle Auxiliary Supply [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3052">MotorTemperature_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Motor Temperature [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3053">MotorTemperature_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Motor Temperature [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3054">MotorCooling_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Motor Cooling [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3055">MotorCooling_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Motor Cooling [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3056">FrequencyLocked_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Frequency Locked [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3057">FrequencyLocked_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Frequency Locked [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3058">ConverterOverload_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Converter Overload [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3059">ConverterOverload_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Converter Overload [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x305A">RoofFanFeedback_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Roof Fan Feedback [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x305B">RoofFanFeedback_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Roof Fan Feedback [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x305C">TerminalInputReference_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Terminal Input Reference [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x305D">TerminalInputReference_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Terminal Input Reference [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x305E">CpuSynchronizationFault_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} CPU synchronization Fault [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x305F">CpuSynchronizationFault_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} CPU synchronization Fault [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3060">EngineOvercurrent_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Engine Overcurrent [+]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x3061">EngineOvercurrent_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Engine Overcurrent [-]]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{45A60BC3-8022-4F77-87D5-72D50C46B29D}"/>
+				<Hide GUID="{3D044681-2CC1-4026-8A4C-4C51C8003A25}"/>
+				<Hide GUID="{00FFE4D6-CE7A-40E2-BDB7-7459953844FC}"/>
+				<Hide GUID="{05200DE4-0703-471E-9E66-7C167F6C8B60}"/>
+				<Hide GUID="{15669943-AD21-4F67-8EB6-B3988375D597}"/>
+				<Hide GUID="{3AA26A8C-010C-4245-8689-BF01F7ABDA0E}"/>
+				<Hide GUID="{AAAEFF56-DC14-4D7F-9DEB-6AD85EB3C6A2}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{0C0C27B8-A9E3-46F3-A0E4-26883695D7B8}" PersistentType="true">ConvCommandEvents</Name>
+			<DisplayName TxtId=""><![CDATA[NewEventClass_DisplayText]]></DisplayName>
+			<EventId>
+				<Name Id="#x1000">CmdOn_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ON [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1001">CmdOn_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ON [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1002">CmdDriveRelease_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Drive Release [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1003">CmdDriveRelease_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Drive Release [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1004">CmdNotFastStop_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command not Fast Stop [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1005">CmdNotFastStop_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command not Fast Stop [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1006">CmdPulseRelease_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Pulse Release [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1007">CmdPulseRelease_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Pulse Release [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1008">CmdEnableRamp_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Enable Ramp [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1009">CmdEnableRamp_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Enable Ramp [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100A">CmdUnlockRamp_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Unlock Ramp [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100B">CmdUnlockRamp_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Unlock Ramp [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100C">CmdForward_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Forward [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100D">CmdForward_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Forward [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100E">CmdQuit_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Quit [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100F">CmdQuit_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Quit [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1010">CmdInching1_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inching 1 [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1011">CmdInching1_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inching 1 [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1012">CmdInching2_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inching 2 [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1013">CmdInching2_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inching 2 [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1014">CmdControlByPLC_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Control by PLC [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1015">CmdControlByPLC_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Control by PLC [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1016">CmdIntegratorSpeedCtrlDisable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Integrator Speed Ctrl Disable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1017">CmdIntegratorSpeedCtrlDisable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Integrator Speed Ctrl Disable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1018">CmdTorqueCtrlModeActive_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Torque Ctrl Mode Active [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1019">CmdTorqueCtrlModeActive_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Torque Ctrl Mode Active [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101A">CmdGainSpeedCtrlChangeover_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Gain Speed Ctrl Changeover [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101B">CmdGainSpeedCtrlChangeover_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Gain Speed Ctrl Changeover [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101C">CmdDrooping_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Drooping [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101D">CmdDrooping_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Drooping [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101E">CmdTrqControllerEnable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Trq Controller Enable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101F">CmdTrqControllerEnable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Trq Controller Enable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1020">CmdTrqRefEnable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Trq Ref Enable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1021">CmdTrqRefEnable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Trq Ref Enable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1022">CmdEtpsEnable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ETPS Enable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1023">CmdEtpsEnable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ETPS Enable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1024">CmdEtpsInputSourceSelect_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ETPS Input Source Selec [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1025">CmdEtpsInputSourceSelec_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ETPS Input Source Selec [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1026">CmdInertiaCompEnable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inertia Comp Enable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1027">CmdInertiaCompEnable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inertia Comp Enable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1028">CmdExternalMotorFanOff_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command External Motor Fan OFF [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1029">CmdExternalMotorFanOff_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command External Motor Fan OFF [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102A">CmdReverse_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Reverse [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102B">CmdReverse_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Reverse [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102C">CmdBrakeControl_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Brake Control [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102D">CmdBrakeControl_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Brake Control [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102E">CmdBrakeTestMode_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Brake Test Mode [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102F">CmdBrakeTestMode_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Brake Test Mode [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{4E5E1AA6-DB53-4509-8864-BFB88CA05972}"/>
+				<Hide GUID="{AEB6A3E3-1578-43CA-BA23-A196F1014E82}"/>
+				<Hide GUID="{B771FB11-588F-49C6-895B-D7197B26214D}"/>
+				<Hide GUID="{81831876-91A4-4688-B4D7-4A096A339623}"/>
+				<Hide GUID="{166DD271-0D47-40D7-B6A5-272CC4132C60}"/>
+				<Hide GUID="{BCCA819C-E67D-4CD3-A406-9439E50974C2}"/>
+				<Hide GUID="{203D801B-3313-4950-A7E8-2522693CEB79}"/>
+				<Hide GUID="{897238E3-BFE0-4DF1-886D-CE36F16A60DB}"/>
+				<Hide GUID="{25021F05-441E-465B-BDEB-647F97972B20}"/>
+				<Hide GUID="{00A276B5-3A5D-46F9-848A-61DBB524E973}"/>
+				<Hide GUID="{7B6B214A-C898-4EF8-8E4E-063C670BC53A}"/>
+				<Hide GUID="{6E544663-4901-40E7-BE78-F168235C2A01}"/>
+				<Hide GUID="{36BE7326-A300-47E9-B399-BD91042E27D1}"/>
+				<Hide GUID="{A1757E4C-8838-4A85-B77B-8A77439BAC39}"/>
+				<Hide GUID="{D012E63D-164F-4B0C-8074-A77FF6C0236F}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{D012E63D-164F-4B0C-8074-A77FF6C0236F}" PersistentType="true">ConvCommandEvents</Name>
+			<DisplayName TxtId=""><![CDATA[NewEventClass_DisplayText]]></DisplayName>
+			<EventId>
+				<Name Id="#x1000">CmdOn_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ON [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1001">CmdOn_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ON [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1002">CmdDriveRelease_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Drive Release [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1003">CmdDriveRelease_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Drive Release [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1004">CmdNotFastStop_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command not Fast Stop [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1005">CmdNotFastStop_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command not Fast Stop [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1006">CmdPulseRelease_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Pulse Release [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1007">CmdPulseRelease_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Pulse Release  [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1008">CmdEnableRamp_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Enable Ramp [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1009">CmdEnableRamp_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Enable Ramp [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100A">CmdUnlockRamp_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Unlock Ramp [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100B">CmdUnlockRamp_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Unlock Ramp [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100C">CmdForward_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Forward [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100D">CmdForward_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Forward [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100E">CmdQuit_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Quit [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x100F">CmdQuit_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Quit [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1010">CmdInching1_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inching 1 [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1011">CmdInching1_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inching 1 [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1012">CmdInching2_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inching 2 [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1013">CmdInching2_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inching 2 [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1014">CmdControlByPLC_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Control by PLC [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1015">CmdControlByPLC_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Control by PLC [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1016">CmdIntegratorSpeedCtrlDisable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Integrator Speed Ctrl Disable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1017">CmdIntegratorSpeedCtrlDisable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Integrator Speed Ctrl Disable  [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1018">CmdTorqueCtrlModeActive_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Torque Ctrl Mode Active [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1019">CmdTorqueCtrlModeActive_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Torque Ctrl Mode Active  [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101A">CmdGainSpeedCtrlChangeover_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Gain Speed Ctrl Changeover [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101B">CmdGainSpeedCtrlChangeover_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Gain Speed Ctrl Changeover [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101C">CmdDrooping_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Drooping  [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101D">CmdDrooping_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Drooping [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101E">CmdTrqControllerEnable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Trq Controller Enable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x101F">CmdTrqControllerEnable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Trq Controller Enable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1020">CmdTrqRefEnable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Trq Ref Enable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1021">CmdTrqRefEnable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Trq Ref Enable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1022">CmdEtpsEnable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ETPS Enable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1023">CmdEtpsEnable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ETPS Enable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1024">CmdEtpsInputSourceSelect_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ETPS Input Source Selec [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1025">CmdEtpsInputSourceSelec_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command ETPS Input Source Selec [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1026">CmdInertiaCompEnable_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inertia Comp Enable [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1027">CmdInertiaCompEnable_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Inertia Comp Enable [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1028">CmdExternalMotorFanOff_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command External Motor Fan OFF [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x1029">CmdExternalMotorFanOff_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command External Motor Fan OFF [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102A">CmdReverse_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Reverse [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102B">CmdReverse_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Reverse [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102C">CmdBrakeControl_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Brake Control [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102D">CmdBrakeControl_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Brake Control [-]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102E">CmdBrakeTestMode_1</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Brake Test Mode [+]]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="#x102F">CmdBrakeTestMode_0</Name>
+				<DisplayName TxtId=""><![CDATA[{0} {1} Command Brake Test Mode [-]]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{4E5E1AA6-DB53-4509-8864-BFB88CA05972}"/>
+				<Hide GUID="{AEB6A3E3-1578-43CA-BA23-A196F1014E82}"/>
+				<Hide GUID="{B771FB11-588F-49C6-895B-D7197B26214D}"/>
+				<Hide GUID="{81831876-91A4-4688-B4D7-4A096A339623}"/>
+				<Hide GUID="{166DD271-0D47-40D7-B6A5-272CC4132C60}"/>
+				<Hide GUID="{BCCA819C-E67D-4CD3-A406-9439E50974C2}"/>
+				<Hide GUID="{203D801B-3313-4950-A7E8-2522693CEB79}"/>
+				<Hide GUID="{897238E3-BFE0-4DF1-886D-CE36F16A60DB}"/>
+				<Hide GUID="{25021F05-441E-465B-BDEB-647F97972B20}"/>
+				<Hide GUID="{00A276B5-3A5D-46F9-848A-61DBB524E973}"/>
+				<Hide GUID="{7B6B214A-C898-4EF8-8E4E-063C670BC53A}"/>
+				<Hide GUID="{6E544663-4901-40E7-BE78-F168235C2A01}"/>
+				<Hide GUID="{36BE7326-A300-47E9-B399-BD91042E27D1}"/>
+				<Hide GUID="{A1757E4C-8838-4A85-B77B-8A77439BAC39}"/>
+			</Hides>
+		</DataType>
+	</DataTypes>
+	<Project ProjectGUID="{8F469EA1-F997-466F-8BF3-A39CF6C497B4}" Target64Bit="true" ShowHideConfigurations="#x106">
+		<System>
+			<Settings MaxCpus="16" NonWinCpus="2">
+				<Cpu CpuId="14"/>
+				<Cpu CpuId="15"/>
+			</Settings>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="10000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{62BD5C57-94A9-45CF-B474-5A25BA973A61}" Name="DataProcessing" PrjFilePath="DataProcessing\DataProcessing.plcproj" TmcFilePath="DataProcessing\DataProcessing.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="DataProcessing\DataProcessing.tmc" TmcHash="{06F2CCC9-41AE-6810-E373-AE223DF42B3D}">
+					<Name>DataProcessing Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>RxAndTxData.nLcStatusWord_1</Name>
+							<Comment><![CDATA[ LC Status Word 1]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nLcStatusWord_2</Name>
+							<Comment><![CDATA[ LC Status Word 2]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nMcStatusWord_1</Name>
+							<Comment><![CDATA[ LC Status Word 1]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nMcStatusWord_2</Name>
+							<Comment><![CDATA[ LC Status Word 2]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nLcFaultWord1</Name>
+							<Comment><![CDATA[ Drive fault category B]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nLcFaultWord2</Name>
+							<Comment><![CDATA[ Drive fault category C #1]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nLcFaultWord3</Name>
+							<Comment><![CDATA[ Drive fault category C #2]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nLcFaultWord4</Name>
+							<Comment><![CDATA[ Drive fault category D]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nMcFaultWord1</Name>
+							<Comment><![CDATA[ Drive fault category B]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nMcFaultWord2</Name>
+							<Comment><![CDATA[ Drive fault category C #1]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nMcFaultWord3</Name>
+							<Comment><![CDATA[ Drive fault category C #2]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nMcFaultWord4</Name>
+							<Comment><![CDATA[ Drive fault category D]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo01</Name>
+							<Comment><![CDATA[ Recieved Real PDOs From ProTx ]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo02</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo03</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo04</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo05</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo06</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo07</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo08</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo09</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo10</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo11</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo12</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo13</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo14</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo15</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo16</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo17</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo18</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo19</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo20</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo21</Name>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.TxRealPdo22</Name>
+							<Type>REAL</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>RxAndTxData.nLcCommandWord</Name>
+							<Comment><![CDATA[ LC Command Word]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nMcCommandWord_1</Name>
+							<Comment><![CDATA[ MC Main Command Word]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.nMcCommandWord_2</Name>
+							<Comment><![CDATA[ MC Application Command Word]]></Comment>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo01</Name>
+							<Comment><![CDATA[ LC Iq_ref and  MC torque or current]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo02</Name>
+							<Comment><![CDATA[ MC speed or voltge]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo03</Name>
+							<Comment><![CDATA[ Mc act. torque or power]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo04</Name>
+							<Comment><![CDATA[ MC Ext Torque Limmit_motor or Charge current limmit]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo05</Name>
+							<Comment><![CDATA[ MC Ext Torque Limmit_gen or Discharge current limmit]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo06</Name>
+							<Comment><![CDATA[ MC Speed regulation bias and Cable resistor in Ohm]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo07</Name>
+							<Comment><![CDATA[ MC Speed limmit and Max output votltage switch off value in V]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo08</Name>
+							<Comment><![CDATA[ MC Jrequest and and Min output votltage switch off value in V]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo09</Name>
+							<Comment><![CDATA[ MC Max output current switch off value in A and ETPS value for number of cylinders]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>RxAndTxData.RxRealPdo10</Name>
+							<Comment><![CDATA[ MC Min output current switch off value in A and scaled ETPS torque M1]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+					</Vars>
+					<UnrestoredVarLinks ImportTime="2022-05-23T16:00:27">
+						<OwnerA Name="OutputSrc" Prefix="TIPC^Untitled1^Untitled1 Instance" Type="2">
+							<OwnerB Name="TIID^Device 3 (EtherCAT)^Box 1 (PECe FC1100 EtherCAT PCI slave card)">
+								<Link VarA="RxAndTxData.nMcApplicationCommandWord" TypeA="UDINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000008}" VarB="Instance_1^SYS.ECS_In.RX_Int32_PDO3" RestoreInfo="ANotFound"/>
+								<Link VarA="RxAndTxData.nMcMainCommandWord" TypeA="UDINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000008}" VarB="Instance_1^SYS.ECS_In.RX_Int32_PDO2" RestoreInfo="ANotFound"/>
+							</OwnerB>
+						</OwnerA>
+					</UnrestoredVarLinks>
+					<Contexts>
+						<Context>
+							<Id NeedCalleeCall="true">0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010030</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>1000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+	</Project>
+</TcSmProject>

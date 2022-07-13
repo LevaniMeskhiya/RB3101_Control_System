@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="RxAndTxData" Id="{02b00ca8-a808-4fcd-a56c-bd68fb8da47b}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+	(* Recieved Integer PDOs From ProTX, Status Words *)
+	nLcStatusWord_1 		AT %I* : UDINT; // LC Status Word 1
+	nLcStatusWord_2 		AT %I* : UDINT; // LC Status Word 2
+	nMcStatusWord_1 		AT %I* : UDINT; // LC Status Word 1
+	nMcStatusWord_2 		AT %I* : UDINT; // LC Status Word 2
+	
+	
+	(* Recieved Integer PDOs From ProTX, Fault Words *)
+	nLcFaultWord1 			AT %I* : UDINT; // Drive fault category B
+	nLcFaultWord2 			AT %I* : UDINT; // Drive fault category C #1
+	nLcFaultWord3 			AT %I* : UDINT; // Drive fault category C #2
+	nLcFaultWord4 			AT %I* : UDINT; // Drive fault category D
+	nMcFaultWord1 			AT %I* : UDINT; // Drive fault category B
+	nMcFaultWord2 			AT %I* : UDINT; // Drive fault category C #1
+	nMcFaultWord3 			AT %I* : UDINT; // Drive fault category C #2
+	nMcFaultWord4 			AT %I* : UDINT; // Drive fault category D
+	
+
+	(* Recieved Real PDOs From ProTx *)
+	
+	TxRealPdo01 			AT %I* : REAL; 
+	TxRealPdo02 			AT %I* : REAL;
+	TxRealPdo03 			AT %I* : REAL;
+	TxRealPdo04 			AT %I* : REAL;
+	TxRealPdo05 			AT %I* : REAL;
+	TxRealPdo06 			AT %I* : REAL;
+	TxRealPdo07 			AT %I* : REAL;
+	TxRealPdo08 			AT %I* : REAL;
+	TxRealPdo09 			AT %I* : REAL;
+	TxRealPdo10 			AT %I* : REAL;
+	TxRealPdo11 			AT %I* : REAL;
+	TxRealPdo12 			AT %I* : REAL;
+	TxRealPdo13 			AT %I* : REAL;
+	TxRealPdo14 			AT %I* : REAL;
+	TxRealPdo15 			AT %I* : REAL;
+	TxRealPdo16 			AT %I* : REAL;
+	TxRealPdo17 			AT %I* : REAL;
+	TxRealPdo18 			AT %I* : REAL;
+	TxRealPdo19 			AT %I* : REAL;
+	TxRealPdo20 			AT %I* : REAL;
+	TxRealPdo21 			AT %I* : REAL;
+	TxRealPdo22 			AT %I* : REAL;
+	
+	(*  Send Integer variable to ProTx, Command Words, lincked to IO *)
+	
+	nLcCommandWord 			AT %Q* : UDINT; 	// LC Command Word
+	nMcCommandWord_1 		AT %Q* : UDINT; 	// MC Main Command Word
+	nMcCommandWord_2		AT %Q* : UDINT; 	// MC Application Command Word
+
+	(* Send Real variables to ProTX, lincked to IO *)
+	
+	RxRealPdo01 			AT %Q* : REAL; // LC Iq_ref and  MC torque or current
+	RxRealPdo02 			AT %Q* : REAL; // MC speed or voltge
+	RxRealPdo03 			AT %Q* : REAL; // Mc act. torque or power
+	RxRealPdo04 			AT %Q* : REAL; // MC Ext Torque Limmit_motor or Charge current limmit
+	RxRealPdo05				AT %Q* : REAL; // MC Ext Torque Limmit_gen or Discharge current limmit
+	RxRealPdo06 			AT %Q* : REAL; // MC Speed regulation bias and Cable resistor in Ohm
+	RxRealPdo07 			AT %Q* : REAL; // MC Speed limmit and Max output votltage switch off value in V
+	RxRealPdo08 			AT %Q* : REAL; // MC Jrequest and and Min output votltage switch off value in V
+	RxRealPdo09 			AT %Q* : REAL; // MC Max output current switch off value in A and ETPS value for number of cylinders
+	RxRealPdo10 			AT %Q* : REAL; // MC Min output current switch off value in A and scaled ETPS torque M1
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_McCommandWord_2_ProfiDrive" Id="{38f433f6-ac95-4f9a-a72b-e88aea1790a3}">
+    <Declaration><![CDATA[TYPE ST_McCommandWord_2_ProfiDrive :
+STRUCT
+	Bit00_IntegratorSpeedCtrlDisable	: BOOL;
+	Bit01_TorqueControlModeActive		: BOOL;
+	Bit02_GainSpeedcontrolChangeover 	: BOOL;
+	Bit03_Drooping 						: BOOL;
+	Bit04_TorqueControlEnable			: BOOL;
+	Bit05_TorqueReferenceEnable			: BOOL;
+	Bit06_EtpsEnable					: BOOL;
+	Bit07_EtpsInputSourceSelect			: BOOL;
+	Bit08_InertiaCompensationenable		: BOOL;
+	Bit09_ExternalMotorFanOff			: BOOL;
+	Bit10_uu							: BOOL;
+	Bit11_uu							: BOOL;
+	Bit12_Reverce						: BOOL;
+	Bit13_BrakeControl					: BOOL;
+	Bit14_BrakeTestMode					: BOOL;
+	Bit15_InternalAliveToggle			: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

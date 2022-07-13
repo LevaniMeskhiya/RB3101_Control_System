@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_LcCommandWord_ProfiDrive" Id="{19c4f222-8c59-4c78-b934-02a222c1239d}">
+    <Declaration><![CDATA[TYPE ST_LcCommandWord_ProfiDrive :
+STRUCT
+	Bit00_OnOff 						: BOOL;
+	Bit01_DriveRelease					: BOOL;
+	Bit02_uu 							: BOOL;
+	Bit03_PulseRelease 					: BOOL;
+	Bit04_uu							: BOOL;
+	Bit05_uu							: BOOL;
+	Bit06_uu							: BOOL;
+	Bit07_Quit							: BOOL;
+	Bit08_uu							: BOOL;
+	Bit09_uu							: BOOL;
+	Bit10_ControlByPLC					: BOOL;
+	Bit11_ParSetChangeOverBit00			: BOOL;
+	Bit12_ParSetChangeOverBit01			: BOOL;
+	Bit13_ParSetChangeOverBit02			: BOOL;
+	Bit14_ParSetChangeOverBit03			: BOOL;
+	Bit15_MainAliveToggle				: BOOL;
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

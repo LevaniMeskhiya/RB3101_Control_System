@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_LcStatusWord_2_ProfiDrive" Id="{2ad7255b-1d4e-4190-a1d2-ab40292822c8}">
+    <Declaration><![CDATA[TYPE ST_LcStatusWord_2_ProfiDrive :
+STRUCT
+	Bit00_FaultB					: BOOL;
+	Bit01_FaultC 					: BOOL;
+	Bit02_FaultC 					: BOOL;
+	Bit03_FaultDWarning 			: BOOL;
+	Bit04_TrafoOvertempWarning		: BOOL;
+	Bit05_TrafoInsolationWarning	: BOOL;
+	Bit06_uu						: BOOL;
+	Bit07_uu						: BOOL;
+	Bit08_uu						: BOOL;
+	Bit09_uu						: BOOL;
+	Bit10_ThHSWarning				: BOOL;
+	Bit11_ThHSMaxWarning			: BOOL;
+	Bit12_ParSetBit00				: BOOL;
+	Bit13_ParSetBit01				: BOOL;
+	Bit14_ParSetBit02				: BOOL;
+	Bit15_ParSetBit03				: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_McFaultWord3" Id="{82c2bc1b-e72f-4e57-82d0-18027f2e5e62}">
+    <Declaration><![CDATA[TYPE ST_McFaultWord3 :
+STRUCT
+	Bit00_EncoderFault 				: BOOL;
+	Bit01_BlockFault				: BOOL;
+	Bit02_OverspeedFault			: BOOL;
+	Bit03_BrakeFault		 		: BOOL;
+	Bit04_InterlockRotating			: BOOL;
+	Bit05_DcOutputSwitches			: BOOL;
+	Bit06_DcOutputOfRange			: BOOL;
+	Bit07_DcSwitchOnSequence		: BOOL;
+	Bit08_uu						: BOOL;
+	Bit09_uu						: BOOL;
+	Bit10_uu						: BOOL;
+	Bit11_uu						: BOOL;
+	Bit12_uu						: BOOL;
+	Bit13_uu						: BOOL;
+	Bit14_uu						: BOOL;
+	Bit15_uu						: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

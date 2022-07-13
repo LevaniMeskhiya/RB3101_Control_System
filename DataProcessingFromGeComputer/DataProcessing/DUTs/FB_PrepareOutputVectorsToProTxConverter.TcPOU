@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_PrepareOutputVectorsToProTxConverter" Id="{ca5ab001-da36-4981-951d-ac5f2c3e039b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PrepareOutputVectorsToProTxConverter
+VAR_INPUT
+	stOutputVectorReal 				: ST_OutputVectorReal;
+	stLcCommandWord 				: ST_LcCommandWord_ProfiDrive;
+	stMcCommandWord_1 				: ST_McCommandWord_1_ProfiDrive;
+	stMcCommandWord_2		 		: ST_McCommandWord_2_ProfiDrive;
+	nLcDriveProfile 				: E_DriveProfile;
+	nMcDriveProfile 				: E_DriveProfile;
+END_VAR 
+VAR
+	wLcCommandWord 					: WORD;
+	wMcCommandWord_1 				: WORD;
+	wMcCommandWord_2		 		: WORD;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+/// Converting LC Command Word From Structure to UDINT {{{
+IF 	nLcDriveProfile = 3 THEN
+	wLcCommandWord.0 := stLcCommandWord.Bit00_OnOff;
+	wLcCommandWord.1 := stLcCommandWord.Bit01_DriveRelease;
+	wLcCommandWord.2 := stLcCommandWord.Bit02_uu;
+	wLcCommandWord.3 := stLcCommandWord.Bit03_PulseRelease;
+	wLcCommandWord.4 := stLcCommandWord.Bit04_uu;
+	wLcCommandWord.5 := stLcCommandWord.Bit05_uu;
+	wLcCommandWord.6 := stLcCommandWord.Bit06_uu;
+	wLcCommandWord.7 := stLcCommandWord.Bit07_Quit;
+	wLcCommandWord.8 := stLcCommandWord.Bit08_uu;
+	wLcCommandWord.9 := stLcCommandWord.Bit09_uu;
+	wLcCommandWord.10 := stLcCommandWord.Bit10_ControlByPLC;
+	wLcCommandWord.11 := stLcCommandWord.Bit11_ParSetChangeOverBit00;
+	wLcCommandWord.12 := stLcCommandWord.Bit12_ParSetChangeOverBit01;
+	wLcCommandWord.13 := stLcCommandWord.Bit13_ParSetChangeOverBit02;
+	wLcCommandWord.14 := stLcCommandWord.Bit14_ParSetChangeOverBit03;
+	wLcCommandWord.15 := stLcCommandWord.Bit15_MainAliveToggle;
+END_IF
+	
+	RxAndTxData.nLcCommandWord := TO_UDINT(wLcCommandWord);
+///}}}
+
+/// Converting MC Command Word_1 From Structure to UDINT {{{
+IF 	nMcDriveProfile = 3 THEN
+	wMcCommandWord_1.0 := stMcCommandWord_1.Bit00_OnOff;
+	wMcCommandWord_1.1 := stMcCommandWord_1.Bit01_DriveRelease;
+	wMcCommandWord_1.2 := stMcCommandWord_1.Bit02_FastStop;
+	wMcCommandWord_1.3 := stMcCommandWord_1.Bit03_PulceRelease;
+	wMcCommandWord_1.4 := stMcCommandWord_1.Bit04_EnableRump;
+	wMcCommandWord_1.5 := stMcCommandWord_1.Bit05_UnlockRump;
+	wMcCommandWord_1.6 := stMcCommandWord_1.Bit06_Forward;
+	wMcCommandWord_1.7 := stMcCommandWord_1.Bit07_Quit;
+	wMcCommandWord_1.8 := stMcCommandWord_1.Bit08_Inching1;
+	wMcCommandWord_1.9 := stMcCommandWord_1.Bit09_Inching2;
+	wMcCommandWord_1.10 := stMcCommandWord_1.Bit10_ControlByPlc;
+	wMcCommandWord_1.11 := stMcCommandWord_1.Bit11_ParSetChangeOverBit00;
+	wMcCommandWord_1.12 := stMcCommandWord_1.Bit12_ParSetChangeOverBit01;
+	wMcCommandWord_1.13 := stMcCommandWord_1.Bit13_ParSetChangeOverBit02;
+	wMcCommandWord_1.14 := stMcCommandWord_1.Bit14_ParSetChangeOverBit03;
+	wMcCommandWord_1.15 := stMcCommandWord_1.Bit15_MainAliveToggle;
+END_IF
+	
+	RxAndTxData.nMcCommandWord_1 := TO_UDINT(wMcCommandWord_1);
+///}}}
+
+/// Converting MC Command Word_2 From Structure to UDINT {{{
+IF 	nMcDriveProfile = 3 THEN
+	wMcCommandWord_2.0 := stMcCommandWord_2.Bit00_IntegratorSpeedCtrlDisable;
+	wMcCommandWord_2.1 := stMcCommandWord_2.Bit01_TorqueControlModeActive;
+	wMcCommandWord_2.2 := stMcCommandWord_2.Bit02_GainSpeedcontrolChangeover;
+	wMcCommandWord_2.3 := stMcCommandWord_2.Bit03_Drooping;
+	wMcCommandWord_2.4 := stMcCommandWord_2.Bit04_TorqueControlEnable;
+	wMcCommandWord_2.5 := stMcCommandWord_2.Bit05_TorqueReferenceEnable;
+	wMcCommandWord_2.6 := stMcCommandWord_2.Bit06_EtpsEnable;
+	wMcCommandWord_2.7 := stMcCommandWord_2.Bit07_EtpsInputSourceSelect;
+	wMcCommandWord_2.8 := stMcCommandWord_2.Bit08_InertiaCompensationenable;
+	wMcCommandWord_2.9 := stMcCommandWord_2.Bit09_ExternalMotorFanOff;
+	wMcCommandWord_2.10 := stMcCommandWord_2.Bit10_uu;
+	wMcCommandWord_2.11 := stMcCommandWord_2.Bit11_uu;
+	wMcCommandWord_2.12 := stMcCommandWord_2.Bit12_Reverce;
+	wMcCommandWord_2.13 := stMcCommandWord_2.Bit13_BrakeControl;
+	wMcCommandWord_2.14 := stMcCommandWord_2.Bit14_BrakeTestMode;
+	wMcCommandWord_2.15 := stMcCommandWord_2.Bit15_InternalAliveToggle;
+END_IF
+
+	RxAndTxData.nMcCommandWord_2 := TO_UDINT(wMcCommandWord_2);
+///}}}
+
+/// Converting Output Real PDOs to IO Linked  Variable {{{	
+	RxAndTxData.RxRealPdo01 := stOutputVectorReal.OutputPDO_1;
+	RxAndTxData.RxRealPdo02 := stOutputVectorReal.OutputPDO_2;
+	RxAndTxData.RxRealPdo03 := stOutputVectorReal.OutputPDO_3;
+	RxAndTxData.RxRealPdo04 := stOutputVectorReal.OutputPDO_4;
+	RxAndTxData.RxRealPdo05 := stOutputVectorReal.OutputPDO_5;
+	RxAndTxData.RxRealPdo06 := stOutputVectorReal.OutputPDO_6;
+	RxAndTxData.RxRealPdo07 := stOutputVectorReal.OutputPDO_7;
+	RxAndTxData.RxRealPdo08 := stOutputVectorReal.OutputPDO_8;
+	RxAndTxData.RxRealPdo09 := stOutputVectorReal.OutputPDO_9;
+	RxAndTxData.RxRealPdo10 := stOutputVectorReal.OutputPDO_10;
+///}}}	
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_PrepareOutputVectorsToProTxConverter">
+      <LineId Id="235" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="242" Count="0" />
+      <LineId Id="245" Count="16" />
+      <LineId Id="346" Count="0" />
+      <LineId Id="243" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="343" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="54" Count="7" />
+      <LineId Id="337" Count="1" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="66" Count="3" />
+      <LineId Id="340" Count="0" />
+      <LineId Id="339" Count="0" />
+      <LineId Id="345" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="73" Count="1" />
+      <LineId Id="347" Count="0" />
+      <LineId Id="75" Count="8" />
+      <LineId Id="91" Count="1" />
+      <LineId Id="84" Count="4" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="350" Count="0" />
+      <LineId Id="214" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="357" Count="0" />
+      <LineId Id="356" Count="0" />
+      <LineId Id="358" Count="11" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

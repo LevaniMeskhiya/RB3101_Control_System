@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="P_Timer" Id="{da9430d7-0d4c-4fd3-9c95-1a98ccdd9a27}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Timer
+VAR
+    fbSystemTime             : FB_LocalSystemTime;
+    dtCurrentDateTime        : DT;
+    sCurrentDateTime         : STRING;
+    sDateTime                : STRING;
+    bSecond                  : BOOL;
+    nSecond                  : WORD;
+    bPulsels                 : BOOL;
+    bPulse05s                : BOOL;
+    
+    fbRtSecond               : R_TRIG;
+    fbLow_1s                 : TON;
+    fbHigh_1s                : TOF;
+    fbLow_05s                : TON;
+    fbHigh_05s               : TOF;
+    
+    
+    
+    fbSystemTimefbSystemTime: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Synchronize system time *)
+
+    fbSystemTime(
+        bEnable  := TRUE, 
+        dwCycle  := 5 , 
+        dwOpt    := 1 , 
+    );
+    
+    dtCurrentDateTime   := SYSTEMTIME_TO_DT(fbSystemTime.systemTime);
+    sCurrentDateTime    := MID(DT_TO_STRING(dtCurrentDateTime), 19, 4);
+    
+(* Convert timetamp because ':' ivalid if file vame *)
+
+    sDateTime := sCurrentDateTime;
+    sDateTIme := replace(sDateTime, '-', 1, 11);
+    sDateTIme := replace(sDateTime, '-', 1, 14);
+    sDateTIme := replace(sDateTime, '-', 1, 17);
+    
+(* 1 sek. trigger *)
+    
+    fbRtSecond( CLK := fbSystemTime.systemTime.wSecond <> nSecond, Q => bSecond);
+    nSecond := fbSystemTime.systemTime.wSecond;
+    
+(* 1 sek. blinking puls *)
+    
+    fbLow_1s(IN := NOT bPulsels, PT := T#500MS);
+    fbHigh_1s(IN := fbLow_1s.Q, PT := T#500MS, Q => bPulsels);
+    
+(* 0.5 sek. blinking puls *)
+    
+    fbLow_05s(IN := NOT bPulse05s, PT := T#150MS);
+    fbHigh_05s(IN := fbLow_05s.Q, PT := T#150MS, Q => bPulse05s);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

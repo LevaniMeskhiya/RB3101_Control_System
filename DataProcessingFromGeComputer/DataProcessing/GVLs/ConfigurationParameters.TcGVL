@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="ConfigurationParameters" Id="{1ec8cdfe-fcf3-4435-b0d9-d1979b8ac99e}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+	(* Configuration Parameters *)
+	
+	LcCmdDriveProfile : E_DriveProfile;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

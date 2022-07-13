@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.25" ClassName="CFlbTermDef" SubType="9099">
+	<Box Id="2" BoxType="9099" BoxFlags="#x00000020">
+		<Name>__FILENAME__</Name>
+		<ImageId>3</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x0008" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="51" VendorId="#x00000002" ProductCode="#x044c0c62" RevisionNo="#x00100000" InfoDataAddr="true" TimeoutStateChange2="9000" TimeoutMailbox1="1000" TimeoutMailbox2="20000" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="PECe FC1100 EtherCAT PCI slave card (V1.0.0)" Desc="PECe FC1100 EtherCAT PCI slave card">
+			<SyncMan>001000012600010001000000220000010001001026010000</SyncMan>
+			<SyncMan>001400012200010002000000220000010001001422010000</SyncMan>
+			<SyncMan>001830006400010003000000000000000000001864030000</SyncMan>
+			<SyncMan>001c54002000010004000000000000000000001c20030000</SyncMan>
+			<Fmmu>0000000000000000001800020100000001000000000000000000000000000000</Fmmu>
+			<Fmmu>0000000000000000001c00010100000002000000000000000000000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<Pdo Name="Instance" Index="#x1a00" Flags="#x0011" SyncMan="3">
+				<Entry Name="SYS.ECS_In.TX_Int32_PDO1" Index="#x6000">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Int32_PDO2" Index="#x6001">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Int32_PDO3" Index="#x6002">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Int32_PDO4" Index="#x6003">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Int32_PDO5" Index="#x6004">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Int32_PDO6" Index="#x6005">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO1" Index="#x6006">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO2" Index="#x6007">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO3" Index="#x6008">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO4" Index="#x6009">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO5" Index="#x600a">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO6" Index="#x600b">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO7" Index="#x600c">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO8" Index="#x600d">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO9" Index="#x600e">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO10" Index="#x600f">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO11" Index="#x6010">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO12" Index="#x6011">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO13" Index="#x6012">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO14" Index="#x6013">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.TX_Real_PDO15" Index="#x6014">
+					<Type>REAL</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="Instance" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="2">
+				<Entry Name="SYS.ECS_In.RX_Int32_PDO1" Index="#x7000">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Int32_PDO2" Index="#x7001">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO1" Index="#x7002">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO2" Index="#x7003">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO3" Index="#x7004">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO4" Index="#x7005">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO5" Index="#x7006">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO6" Index="#x7007">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO7" Index="#x7008">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO8" Index="#x7009">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO9" Index="#x700a">
+					<Type>REAL</Type>
+				</Entry>
+				<Entry Name="SYS.ECS_In.RX_Real_PDO10" Index="#x700b">
+					<Type>REAL</Type>
+				</Entry>
+			</Pdo>
+		</EtherCAT>
+	</Box>
+</TcSmItem>

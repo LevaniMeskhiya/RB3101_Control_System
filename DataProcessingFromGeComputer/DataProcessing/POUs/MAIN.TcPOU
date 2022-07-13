@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{bf512b22-8e6c-4d83-a4be-500f1b9088b2}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+    
+    fbPrepareOutputVectorsToProTxConverter      : FB_PrepareOutputVectorsToProTxConverter;
+//    fbPrepareInputVectorsFromProTxCovnerter     : FB_PrepareInputVectorsFromProTxCovnerter;
+//    fbGetFaultWordsFromProtxConverter           : FB_GetFaultWordsFromProtxConverter;
+//    fbGetStatusWordsFromProTxConverter          : FB_GetStatusWordsFromProTxConverter;    
+    
+    stOutputVectorReal                          : ST_OutputVectorReal;
+    stLcCommandWord_ProfiDrive                  : ST_LcCommandWord_ProfiDrive;
+    stMcCommandWord_1_ProfiDrive                : ST_McCommandWord_1_ProfiDrive;
+    stMcCommandWord_2_ProfiDrive                : ST_McCommandWord_2_ProfiDrive;
+    
+    nLcDriveProfile                             : E_DriveProfile; // Default is ProfiDrive
+    nMcDriveProfile                             : E_DriveProfile; // Default is ProfiDrive
+    
+    bOnOff                                      : BOOL;
+    bDriveRelease                               : BOOL;
+    bFastStop                                   : BOOL := TRUE;
+    bPulseRelease                               : BOOL;
+    bForward                                    : BOOL;
+    bReverse                                    : BOOL;
+    bControlByPlc                               : BOOL;
+     
+END_VAR
+    
+    
+    ]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[P_EventLogger();
+P_Timer();
+
+stMcCommandWord_1_ProfiDrive.Bit15_MainAliveToggle  := P_Timer.bPulse05s;
+stMcCommandWord_1_ProfiDrive.Bit02_FastStop         := bFastStop;
+stMcCommandWord_1_ProfiDrive.Bit01_DriveRelease     := bDriveRelease;
+stMcCommandWord_1_ProfiDrive.Bit00_OnOff            := bOnOff;
+stMcCommandWord_1_ProfiDrive.Bit03_PulceRelease     := bPulseRelease;
+stMcCommandWord_1_ProfiDrive.Bit06_Forward          := bForward;
+stMcCommandWord_2_ProfiDrive.Bit12_Reverce          := bReverse;
+stMcCommandWord_1_ProfiDrive.Bit10_ControlByPlc     := bControlByPlc;
+
+ 
+
+fbPrepareOutputVectorsToProTxConverter(
+    stOutputVectorReal  := stOutputVectorReal, 
+    stLcCommandWord     := stLcCommandWord_ProfiDrive, 
+    stMcCommandWord_1   := stMcCommandWord_1_ProfiDrive, 
+    stMcCommandWord_2   := stMcCommandWord_2_ProfiDrive, 
+    nLcDriveProfile     := nLcDriveProfile, 
+    nMcDriveProfile     := nMcDriveProfile);
+
+                                    
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

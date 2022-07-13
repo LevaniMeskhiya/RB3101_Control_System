@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_GetFaultWordsFromProtxConverter" Id="{d1e5c0ba-8afe-411b-88fe-e4c53fc5700a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_GetFaultWordsFromProtxConverter
+VAR_INPUT
+    stOutputVectorInteger : ST_OutputVectorInteger1;
+    stOutputVectorReal : ST_OutputVectorReal1;
+END_VAR
+VAR
+    stLcFaultWord1 : ST_LcFaultWord1;
+    stLcFaultWord2 : ST_LcFaultWord2;
+    stLcFaultWord3 : ST_LcFaultWord3;
+    stLcFaultWord4 : ST_LcFaultWord4;
+    stMcFaultWord1 : ST_McFaultWord1;
+    stMcFaultWord2 : ST_McFaultWord2;
+    stMcFaultWord3 : ST_McFaultWord3;
+    stMcFaultWord4 : ST_McFaultWord4;
+    
+    wLcFaultWord1     : WORD;
+     wLcFaultWord2     : WORD;
+    wLcFaultWord3     : WORD;
+    wLcFaultWord4     : WORD;
+    wMcFaultWord1     : WORD;
+     wMcFaultWord2     : WORD;
+    wMcFaultWord3     : WORD;
+    wMcFaultWord4     : WORD;
+
+
+    nLcFaultWord1     : LINT;
+     nLcFaultWord2     : LINT;
+    nLcFaultWord3     : LINT;
+    nLcFaultWord4     : LINT;
+    nMcFaultWord1     : LINT;
+     nMcFaultWord2     : LINT;
+    nMcFaultWord3     : LINT;
+    nMcFaultWord4     : LINT;
+    
+    
+     
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[/// Conversion from LINT to WORD {{{
+wLcFaultWord1 := TO_WORD(TO_INT(stOutputVectorInteger.Element02_LcDriveFaultCategoryB));
+wLcFaultWord2 := TO_WORD(TO_INT(stOutputVectorInteger.Element03_LcDriveFaultCategoryC));
+wLcFaultWord3 := TO_WORD(TO_INT(stOutputVectorInteger.Element04_LcDriveFaultCategoryC));
+wLcFaultWord4 := TO_WORD(TO_INT(stOutputVectorInteger.Element05_LcDriveFaultCategoryD));
+wMcFaultWord1 := TO_WORD(TO_INT(stOutputVectorInteger.Element14_McDriveFaultCategoryB));
+wMcFaultWord2 := TO_WORD(TO_INT(stOutputVectorInteger.Element15_McDriveFaultCategoryC));
+wMcFaultWord3 := TO_WORD(TO_INT(stOutputVectorInteger.Element16_McDriveFaultCategoryC));
+wMcFaultWord4 := TO_WORD(TO_INT(stOutputVectorInteger.Element17_McDriveFaultCategoryD));
+///}}}
+
+/// LC Fault Word 1 {{{
+RxAndTxData.stLcFaultWord1.Bit00_FaultInputAryEcat := wLcFaultWord1.0;
+RxAndTxData.stLcFaultWord1.Bit01_FPGA := wLcFaultWord1.1;
+RxAndTxData.stLcFaultWord1.Bit02_Watchdog := wLcFaultWord1.2;
+RxAndTxData.stLcFaultWord1.Bit03_UdcMax := wLcFaultWord1.3;
+RxAndTxData.stLcFaultWord1.Bit08_UceFault := wLcFaultWord1.8;
+///}}} 
+    
+/// LC Fault Word 2 {{{
+RxAndTxData.stLcFaultWord2.Bit00_PibSupply := wLcFaultWord2.0;
+RxAndTxData.stLcFaultWord2.Bit01_MeasurementConnectorLoop := wLcFaultWord2.1;
+RxAndTxData.stLcFaultWord2.Bit02_FaultLoop := wLcFaultWord2.2;
+RxAndTxData.stLcFaultWord2.Bit03_AmplifierConnector := wLcFaultWord2.3;
+RxAndTxData.stLcFaultWord2.Bit04_TermSupply := wLcFaultWord2.4;
+RxAndTxData.stLcFaultWord2.Bit05_Overcurrent := wLcFaultWord2.5;
+RxAndTxData.stLcFaultWord2.Bit06_ShortCircuit := wLcFaultWord2.6;
+RxAndTxData.stLcFaultWord2.Bit07_DcConnection := wLcFaultWord2.7;
+RxAndTxData.stLcFaultWord2.Bit08_ThHSMax := wLcFaultWord2.8;
+RxAndTxData.stLcFaultWord2.Bit09_ShortCircuit24V := wLcFaultWord2.9;
+RxAndTxData.stLcFaultWord2.Bit10_FieldBus := wLcFaultWord2.10;
+RxAndTxData.stLcFaultWord2.Bit11_FLinkRxMc := wLcFaultWord2.11;
+RxAndTxData.stLcFaultWord2.Bit12_EarthFault := wLcFaultWord2.12;
+RxAndTxData.stLcFaultWord2.Bit13_UdcMin := wLcFaultWord2.13;
+RxAndTxData.stLcFaultWord2.Bit15_ExtFault := wLcFaultWord2.15;
+///}}}
+    
+/// LC Fault Word 3 {{{
+RxAndTxData.stLcFaultWord3.Bit00_ULineVoltage := wLcFaultWord3.0;
+RxAndTxData.stLcFaultWord3.Bit01_ULineMeasurement := wLcFaultWord3.1;
+RxAndTxData.stLcFaultWord3.Bit02_AcFuse := wLcFaultWord3.2;
+RxAndTxData.stLcFaultWord3.Bit03_FbLineContactor := wLcFaultWord3.3;
+RxAndTxData.stLcFaultWord3.Bit04_Charging := wLcFaultWord3.4;
+RxAndTxData.stLcFaultWord3.Bit05_LineFilter := wLcFaultWord3.5;
+///}}}
+
+/// LC Fault Word 4 {{{
+RxAndTxData.stLcFaultWord4.Bit00_NTC := wLcFaultWord4.0;
+RxAndTxData.stLcFaultWord4.Bit01_ThHsMin := wLcFaultWord4.1;
+RxAndTxData.stLcFaultWord4.Bit02_CoolingSystem := wLcFaultWord4.2;
+RxAndTxData.stLcFaultWord4.Bit03_ControllerCabinetFan := wLcFaultWord4.3;
+RxAndTxData.stLcFaultWord4.Bit04_ConverterCubiceOvertemp := wLcFaultWord4.4;
+RxAndTxData.stLcFaultWord4.Bit05_CubicleAuxSupply := wLcFaultWord4.5;
+RxAndTxData.stLcFaultWord4.Bit09_FeedInCubicleOvertemp := wLcFaultWord4.9;
+RxAndTxData.stLcFaultWord4.Bit10_TrafoOvertemp := wLcFaultWord4.10;
+RxAndTxData.stLcFaultWord4.Bit11_Isolation := wLcFaultWord4.11;
+///}}}
+
+/// MC Fault Word 1 {{{
+RxAndTxData.stMcFaultWord1.Bit00_FaultInputAryEcat := wMcFaultWord1.0;
+RxAndTxData.stMcFaultWord1.Bit01_FPGA := wMcFaultWord1.1;
+RxAndTxData.stMcFaultWord1.Bit02_Watchdog := wMcFaultWord1.2;
+RxAndTxData.stMcFaultWord1.Bit03_UdcMax := wMcFaultWord1.3;
+RxAndTxData.stMcFaultWord1.Bit08_UceFault := wMcFaultWord1.8;
+///}}}
+
+/// MC Fault Word 2 {{{
+RxAndTxData.stMcFaultWord2.Bit00_PibSupply := wMcFaultWord2.0;
+RxAndTxData.stMcFaultWord2.Bit01_MeasurementConnectorLoop := wMcFaultWord2.1;
+RxAndTxData.stMcFaultWord2.Bit02_FaultLoop := wMcFaultWord2.2;
+RxAndTxData.stMcFaultWord2.Bit03_AmplifierConnector := wMcFaultWord2.3;
+RxAndTxData.stMcFaultWord2.Bit04_TermSupply := wMcFaultWord2.4;
+RxAndTxData.stMcFaultWord2.Bit05_Overcurrent := wMcFaultWord2.5;
+RxAndTxData.stMcFaultWord2.Bit06_ShortCircuit := wMcFaultWord2.6;
+RxAndTxData.stMcFaultWord2.Bit07_DcConnection := wMcFaultWord2.7;
+RxAndTxData.stMcFaultWord2.Bit08_ThHSMax := wMcFaultWord2.8;
+RxAndTxData.stMcFaultWord2.Bit09_ShortCircuit24V := wMcFaultWord2.9;
+RxAndTxData.stMcFaultWord2.Bit10_FieldBus := wMcFaultWord2.10;
+RxAndTxData.stMcFaultWord2.Bit11_FLinkRxMc := wMcFaultWord2.11;
+RxAndTxData.stMcFaultWord2.Bit12_EarthFault := wMcFaultWord2.12;
+RxAndTxData.stMcFaultWord2.Bit13_UdcMin := wMcFaultWord2.13;
+RxAndTxData.stMcFaultWord2.Bit15_ExtFault := wMcFaultWord2.15;
+///}}}
+
+/// MC Fault Word 3 {{{
+RxAndTxData.stMcFaultWord3.Bit00_EncoderFault := wMcFaultWord3.0;
+RxAndTxData.stMcFaultWord3.Bit01_BlockFault := wMcFaultWord3.1;
+RxAndTxData.stMcFaultWord3.Bit02_OverspeedFault := wMcFaultWord3.2;
+RxAndTxData.stMcFaultWord3.Bit03_BrakeFault := wMcFaultWord3.3;
+RxAndTxData.stMcFaultWord3.Bit04_InterlockRotating := wMcFaultWord3.4;
+RxAndTxData.stMcFaultWord3.Bit05_DcOutputSwitches := wMcFaultWord3.5;
+RxAndTxData.stMcFaultWord3.Bit06_DcOutputOfRange := wMcFaultWord3.6;
+RxAndTxData.stMcFaultWord3.Bit07_DcSwitchOnSequence := wMcFaultWord3.7;
+///}}}
+
+/// MC Fault Word 4 {{{
+RxAndTxData.stMcFaultWord4.Bit00_NTC := wMcFaultWord4.0;
+RxAndTxData.stMcFaultWord4.Bit01_ThHsMin := wMcFaultWord4.1;
+RxAndTxData.stMcFaultWord4.Bit03_ControllerCabinetFan := wMcFaultWord4.3;
+RxAndTxData.stMcFaultWord4.Bit04_ConverterCubiceOvertemp := wMcFaultWord4.4;
+RxAndTxData.stMcFaultWord4.Bit05_CubicleAuxSupply := wMcFaultWord4.5;
+RxAndTxData.stMcFaultWord4.Bit06_MotorTemp := wMcFaultWord4.6;
+RxAndTxData.stMcFaultWord4.Bit08_FrequLock := wMcFaultWord4.8;
+RxAndTxData.stMcFaultWord4.Bit09_ConverterOverload := wMcFaultWord4.9;
+///}}}
+
+    
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

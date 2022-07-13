@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_LcFaultWord1" Id="{eb41442f-a6dc-4d41-a15c-2300339e67b8}">
+    <Declaration><![CDATA[TYPE ST_LcFaultWord1 :
+STRUCT
+	Bit00_FaultInputAryEcat 	: BOOL;
+	Bit01_FPGA					: BOOL;
+	Bit02_Watchdog 				: BOOL;
+	Bit03_UdcMax 				: BOOL;
+	Bit04_uu					: BOOL;
+	Bit05_uu					: BOOL;
+	Bit06_uu					: BOOL;
+	Bit07_uu					: BOOL;
+	Bit08_UceFault				: BOOL;
+	Bit09_uu					: BOOL;
+	Bit10_uu					: BOOL;
+	Bit11_uu					: BOOL;
+	Bit12_uu					: BOOL;
+	Bit13_uu					: BOOL;
+	Bit14_uu					: BOOL;
+	Bit15_uu					: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

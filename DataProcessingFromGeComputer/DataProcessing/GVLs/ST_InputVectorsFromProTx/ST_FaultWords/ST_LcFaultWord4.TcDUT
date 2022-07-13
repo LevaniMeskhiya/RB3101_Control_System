@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_LcFaultWord4" Id="{dc5abc1f-538e-4970-9d6a-baeb18d806d2}">
+    <Declaration><![CDATA[TYPE ST_LcFaultWord4 :
+STRUCT
+	Bit00_NTC 						: BOOL;
+	Bit01_ThHsMin					: BOOL;
+	Bit02_CoolingSystem 			: BOOL;
+	Bit03_ControllerCabinetFan 		: BOOL;
+	Bit04_ConverterCubiceOvertemp 	: BOOL;
+	Bit05_CubicleAuxSupply 			: BOOL;
+	Bit06_uu 						: BOOL;
+	Bit07_uu						: BOOL;
+	Bit08_uu						: BOOL;
+	Bit09_FeedInCubicleOvertemp		: BOOL;
+	Bit10_TrafoOvertemp				: BOOL;
+	Bit11_Isolation					: BOOL;
+	Bit12_uu						: BOOL;
+	Bit13_uu						: BOOL;
+	Bit14_uu						: BOOL;
+	Bit15_uu						: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="E_DriveProfile" Id="{1b70229d-12a2-496b-a2f1-7e92927e5886}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_DriveProfile :
+(
+	CiA402 		:= 1,
+	CAN 		:= 2,
+	ProfiDrive  := 3
+	
+) := ProfiDrive;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

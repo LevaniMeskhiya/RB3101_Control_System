@@ -1,0 +1,1017 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="P_EventLogger" Id="{23f7fb5d-cae6-4e58-94d6-92e1a0e3c400}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_EventLogger
+VAR
+	fbEventlogger 								: FB_TcEventLogger;
+	bClearAlarms 								: BOOL;
+	bConfirmAlarms 								: BOOL;
+	bClearLoggedEvents							: BOOL;
+	bClearLoggedEventsAtInitialization			: BOOL := TRUE;
+	bExportLoggedEvents							: BOOL;
+	fbRtExport									: R_TRIG;
+	fbLcSignalFaling							: ARRAY[0..30] OF F_TRIG;
+	fbMcSignalFalingCommand						: ARRAY[0..30] OF F_TRIG;
+	fbMcSignalFalingStatus						: ARRAY[0..35] OF F_TRIG;
+	fbCsvExportSetting 							: FB_TcEventCsvExportSettings;
+	fbExportFilter								: FB_TcEventfilter;
+	sExportFileName								: STRING := 'c:\temp\Eventlogger-export.csv';
+	
+	fbLcControlCommandEvents 					: ARRAY[0..50] OF FB_EventMessage;
+	fbMcControlCommandEvents					: ARRAY[0..50] OF FB_EventMessage;
+	fbMcStatusEvents							: ARRAY[0..65] OF FB_EventMessage;
+	
+	
+	hr											: HRESULT;
+	hrLastError									: HRESULT;
+
+	bError 	: BOOL;
+	hrErrorCode 	: HRESULT;
+	nFuulCounter : INT := 0; 
+	nAskToCleanCounter : INT := 0;	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[	
+	// Instances of Action
+	(* a_LcCommandEvents(); *)
+	a_McCommandEvents();
+	a_McStatusEvents();
+	a_ExportLoggedEvents();
+	a_ClearLoggedEvents();
+	
+	// Clear Event Logger Buffer At Initialisation
+	IF bClearLoggedEventsAtInitialization THEN
+		bClearLoggedEventsAtInitialization := FALSE;
+		fbEventlogger.ClearLoggedEvents(0);
+	END_IF
+	
+	// If Event Logger Buffer is Full then Export them in CSV File and Clear Event Logger Buffer
+	IF UtilityVariables.nEventsInEventLogger >= 1000 THEN 
+		bExportLoggedEvents := TRUE;
+		bClearLoggedEvents := TRUE;
+		UtilityVariables.nEventsInEventLogger := 0;
+	END_IF]]></ST>
+    </Implementation>
+    <Action Name="a_ClearEventCecheWhenFull" Id="{b6f7430c-8031-4176-aec4-2d8a5b287894}">
+      <Implementation>
+        <ST><![CDATA[// Stors an event CSV file and clears a PLC ceche when Eevent number is equal to 1000;
+	IF UtilityVariables.nEventsInEventLogger = 10 THEN 
+		bExportLoggedEvents := TRUE;
+		fbEventlogger.ClearLoggedEvents(0);
+		UtilityVariables.nEventsInEventLogger := 0;
+	END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="a_ClearLoggedEvents" Id="{1f7b2874-8051-44f4-8b24-6763deb6e051}">
+      <Implementation>
+        <ST><![CDATA[// Clear all logged events in PLC ceche
+	IF bClearLoggedEvents THEN
+		bClearLoggedEvents := FALSE;
+		fbEventlogger.ClearLoggedEvents(0);
+		fbEventlogger.ClearLoggedEvents(0);
+	END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="a_ExportLoggedEvents" Id="{9be80b56-8ed6-463a-9435-c0dbfc214aec}">
+      <Implementation>
+        <ST><![CDATA[(* create file name *) 
+	sExportFileName := CONCAT(CONCAT('C:\Temp\',P_Timer.sDateTime), '.csv');
+	
+(* CSV export logged events. Without filter all logged events will be exported *)
+(* CSV file will be overwritten, an opened file fires an error *)
+
+	fbRtExport(CLK := bExportLoggedEvents);
+	IF bExportLoggedEvents THEN
+		IF fbRtExport.Q THEN
+			fbCsvExportSetting.Clear();
+			fbCsvExportSetting.AddLanguage(1033, 'English');
+		END_IF
+		IF fbEventLogger.ExportLoggedEvents(sExportFileName, fbCsvExportSetting, hrErrorCode => hr) THEN 
+			bExportLoggedEvents := FALSE;
+		END_IF
+	END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="a_McCommandEvents" Id="{91ebeecf-dbcd-4fd2-81e2-63fadd983987}">
+      <Implementation>
+        <ST><![CDATA[
+(* Events coming from the MC commands *)
+
+	fbMcControlCommandEvents[0](
+		bEvent := RxAndTxData.nMcCommandWord_1.0,
+		nEventID := 16#1000,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[0](CLK := RxAndTxData.nMcCommandWord_1.0);
+	fbMcControlCommandEvents[1](
+		bEvent := fbMcSignalFalingCommand[0].Q,
+		nEventID := 16#1001,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[2](
+		bEvent := RxAndTxData.nMcCommandWord_1.1,
+		nEventID := 16#1002,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[1](CLK := RxAndTxData.nMcCommandWord_1.1);
+	fbMcControlCommandEvents[3](
+		bEvent := fbMcSignalFalingCommand[1].Q,
+		nEventID := 16#1003,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[4](
+		bEvent := RxAndTxData.nMcCommandWord_1.2,
+		nEventID := 16#1004,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[2](CLK := RxAndTxData.nMcCommandWord_1.2);
+	fbMcControlCommandEvents[5](
+		bEvent := fbMcSignalFalingCommand[2].Q,
+		nEventID := 16#1005,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[6](
+		bEvent := RxAndTxData.nMcCommandWord_1.3,
+		nEventID := 16#1006,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[3](CLK := RxAndTxData.nMcCommandWord_1.3);
+	fbMcControlCommandEvents[7](
+		bEvent := fbMcSignalFalingCommand[3].Q,
+		nEventID := 16#1007,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[8](
+		bEvent := RxAndTxData.nMcCommandWord_1.4,
+		nEventID := 16#1008,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[4](CLK := RxAndTxData.nMcCommandWord_1.4);
+	fbMcControlCommandEvents[9](
+		bEvent := fbMcSignalFalingCommand[4].Q,
+		nEventID := 16#1009,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[10](
+		bEvent := RxAndTxData.nMcCommandWord_1.5,
+		nEventID := 16#100A,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[5](CLK := RxAndTxData.nMcCommandWord_1.5);
+	fbMcControlCommandEvents[11](
+		bEvent := fbMcSignalFalingCommand[5].Q,
+		nEventID := 16#100B,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[12](
+		bEvent := RxAndTxData.nMcCommandWord_1.6,
+		nEventID := 16#100C,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[6](CLK := RxAndTxData.nMcCommandWord_1.6);
+	fbMcControlCommandEvents[13](
+		bEvent := fbMcSignalFalingCommand[6].Q,
+		nEventID := 16#100D,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[14](
+		bEvent := RxAndTxData.nMcCommandWord_1.7,
+		nEventID := 16#100E,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[7](CLK := RxAndTxData.nMcCommandWord_1.7);
+	fbMcControlCommandEvents[15](
+		bEvent := fbMcSignalFalingCommand[7].Q,
+		nEventID := 16#100F,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[16](
+		bEvent := RxAndTxData.nMcCommandWord_1.8,
+		nEventID := 16#1010,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[8](CLK := RxAndTxData.nMcCommandWord_1.8);
+	fbMcControlCommandEvents[17](
+		bEvent := fbMcSignalFalingCommand[8].Q,
+		nEventID := 16#1011,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[18](
+		bEvent := RxAndTxData.nMcCommandWord_1.9,
+		nEventID := 16#1012,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[9](CLK := RxAndTxData.nMcCommandWord_1.9);
+	fbMcControlCommandEvents[19](
+		bEvent := fbMcSignalFalingCommand[9].Q,
+		nEventID := 16#1013,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[20](
+		bEvent := RxAndTxData.nMcCommandWord_1.10,
+		nEventID := 16#1014,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[10](CLK := RxAndTxData.nMcCommandWord_1.10);
+	fbMcControlCommandEvents[21](
+		bEvent := fbMcSignalFalingCommand[10].Q,
+		nEventID := 16#1015,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[22](
+		bEvent := RxAndTxData.nMcCommandWord_2.0,
+		nEventID := 16#1016,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[11](CLK := RxAndTxData.nMcCommandWord_2.0);
+	fbMcControlCommandEvents[23](
+		bEvent := fbMcSignalFalingCommand[11].Q,
+		nEventID := 16#1017,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+
+	fbMcControlCommandEvents[24](
+		bEvent := RxAndTxData.nMcCommandWord_2.1,
+		nEventID := 16#1018,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[12](CLK := RxAndTxData.nMcCommandWord_2.1);
+	fbMcControlCommandEvents[25](
+		bEvent := fbMcSignalFalingCommand[12].Q,
+		nEventID := 16#1019,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[26](
+		bEvent := RxAndTxData.nMcCommandWord_2.2,
+		nEventID := 16#101A,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[13](CLK := RxAndTxData.nMcCommandWord_2.2);
+	fbMcControlCommandEvents[27](
+		bEvent := fbMcSignalFalingCommand[13].Q,
+		nEventID := 16#101B,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[28](
+		bEvent := RxAndTxData.nMcCommandWord_2.3,
+		nEventID := 16#101C,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[14](CLK := RxAndTxData.nMcCommandWord_2.3);
+	fbMcControlCommandEvents[29](
+		bEvent := fbMcSignalFalingCommand[14].Q,
+		nEventID := 16#101D,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[30](
+		bEvent := RxAndTxData.nMcCommandWord_2.4,
+		nEventID := 16#101E,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[15](CLK := RxAndTxData.nMcCommandWord_2.4);
+	fbMcControlCommandEvents[31](
+		bEvent := fbMcSignalFalingCommand[15].Q,
+		nEventID := 16#101F,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[32](
+		bEvent := RxAndTxData.nMcCommandWord_2.5,
+		nEventID := 16#1020,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[16](CLK := RxAndTxData.nMcCommandWord_2.5);
+	fbMcControlCommandEvents[33](
+		bEvent := fbMcSignalFalingCommand[16].Q,
+		nEventID := 16#1021,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[34](
+		bEvent := RxAndTxData.nMcCommandWord_2.6,
+		nEventID := 16#1022,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[17](CLK := RxAndTxData.nMcCommandWord_2.6);
+	fbMcControlCommandEvents[35](
+		bEvent := fbMcSignalFalingCommand[17].Q,
+		nEventID := 16#1023,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[36](
+		bEvent := RxAndTxData.nMcCommandWord_2.7,
+		nEventID := 16#1024,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[18](CLK := RxAndTxData.nMcCommandWord_2.7);
+	fbMcControlCommandEvents[37](
+		bEvent := fbMcSignalFalingCommand[18].Q,
+		nEventID := 16#1025,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[38](
+		bEvent := RxAndTxData.nMcCommandWord_2.8,
+		nEventID := 16#1026,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[19](CLK := RxAndTxData.nMcCommandWord_2.8);
+	fbMcControlCommandEvents[39](
+		bEvent := fbMcSignalFalingCommand[19].Q,
+		nEventID := 16#1027,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[40](
+		bEvent := RxAndTxData.nMcCommandWord_2.9,
+		nEventID := 16#1028,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[20](CLK := RxAndTxData.nMcCommandWord_2.9);
+	fbMcControlCommandEvents[41](
+		bEvent := fbMcSignalFalingCommand[20].Q,
+		nEventID := 16#1029,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[42](
+		bEvent := RxAndTxData.nMcCommandWord_2.12,
+		nEventID := 16#102A,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[21](CLK := RxAndTxData.nMcCommandWord_2.12);
+	fbMcControlCommandEvents[43](
+		bEvent := fbMcSignalFalingCommand[21].Q,
+		nEventID := 16#102B,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[44](
+		bEvent := RxAndTxData.nMcCommandWord_2.13,
+		nEventID := 16#102C,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[22](CLK := RxAndTxData.nMcCommandWord_2.13);
+	fbMcControlCommandEvents[45](
+		bEvent := fbMcSignalFalingCommand[22].Q,
+		nEventID := 16#102D,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	
+	fbMcControlCommandEvents[46](
+		bEvent := RxAndTxData.nMcCommandWord_2.14,
+		nEventID := 16#102E,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingCommand[23](CLK := RxAndTxData.nMcCommandWord_2.14);
+	fbMcControlCommandEvents[47](
+		bEvent := fbMcSignalFalingCommand[23].Q,
+		nEventID := 16#102F,
+		sSource := 'Machince Converter Commands',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="a_McStatusEvents" Id="{0ed2aea3-4ff0-42a3-ad5f-5fc772ecb15d}">
+      <Implementation>
+        <ST><![CDATA[
+(* Events Comming from MC Status *) 
+
+	fbMcStatusEvents[0](
+		bEvent := RxAndTxData.nMcStatusWord_1.0,
+		nEventID := 16#2000,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[0](CLK := RxAndTxData.nMcStatusWord_1.0);
+	fbMcStatusEvents[1](
+		bEvent := fbMcSignalFalingStatus[0].Q,
+		nEventID := 16#2001,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[2](
+		bEvent := RxAndTxData.nMcStatusWord_1.1,
+		nEventID := 16#2002,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[1](CLK := RxAndTxData.nMcStatusWord_1.1);
+	fbMcStatusEvents[3](
+		bEvent := fbMcSignalFalingStatus[1].Q,
+		nEventID := 16#2003,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[4](
+		bEvent := RxAndTxData.nMcStatusWord_1.2,
+		nEventID := 16#2004,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[2](CLK := RxAndTxData.nMcStatusWord_1.2);
+	fbMcStatusEvents[5](
+		bEvent := fbMcSignalFalingStatus[2].Q,
+		nEventID := 16#2005,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[6](
+		bEvent := RxAndTxData.nMcStatusWord_1.3,
+		nEventID := 16#2006,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[3](CLK := RxAndTxData.nMcStatusWord_1.3);
+	fbMcStatusEvents[7](
+		bEvent := fbMcSignalFalingStatus[3].Q,
+		nEventID := 16#2007,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[8](
+		bEvent := RxAndTxData.nMcStatusWord_1.4,
+		nEventID := 16#2008,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[4](CLK := RxAndTxData.nMcStatusWord_1.4);
+	fbMcStatusEvents[9](
+		bEvent := fbMcSignalFalingStatus[4].Q,
+		nEventID := 16#2009,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[10](
+		bEvent := RxAndTxData.nMcStatusWord_1.5,
+		nEventID := 16#200A,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[5](CLK := RxAndTxData.nMcStatusWord_1.5);
+	fbMcStatusEvents[11](
+		bEvent := fbMcSignalFalingStatus[5].Q,
+		nEventID := 16#200B,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[12](
+		bEvent := RxAndTxData.nMcStatusWord_1.6,
+		nEventID := 16#200C,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[6](CLK := RxAndTxData.nMcStatusWord_1.6);
+	fbMcStatusEvents[13](
+		bEvent := fbMcSignalFalingStatus[6].Q,
+		nEventID := 16#200D,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[14](
+		bEvent := RxAndTxData.nMcStatusWord_1.7,
+		nEventID := 16#200E,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[7](CLK := RxAndTxData.nMcStatusWord_1.7);
+	fbMcStatusEvents[15](
+		bEvent := fbMcSignalFalingStatus[7].Q,
+		nEventID := 16#200F,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[16](
+		bEvent := RxAndTxData.nMcStatusWord_1.8,
+		nEventID := 16#2010,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[8](CLK := RxAndTxData.nMcStatusWord_1.8);
+	fbMcStatusEvents[17](
+		bEvent := fbMcSignalFalingStatus[8].Q,
+		nEventID := 16#2011,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[18](
+		bEvent := RxAndTxData.nMcStatusWord_1.9,
+		nEventID := 16#2012,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[9](CLK := RxAndTxData.nMcStatusWord_1.9);
+	fbMcStatusEvents[19](
+		bEvent := fbMcSignalFalingStatus[9].Q,
+		nEventID := 16#2013,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[20](
+		bEvent := RxAndTxData.nMcStatusWord_1.10,
+		nEventID := 16#2014,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[10](CLK := RxAndTxData.nMcStatusWord_1.10);
+	fbMcStatusEvents[21](
+		bEvent := fbMcSignalFalingStatus[10].Q,
+		nEventID := 16#2015,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[22](
+		bEvent := RxAndTxData.nMcStatusWord_1.11,
+		nEventID := 16#2016,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[11](CLK := RxAndTxData.nMcStatusWord_1.11);
+	fbMcStatusEvents[23](
+		bEvent := fbMcSignalFalingStatus[11].Q,
+		nEventID := 16#2017,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[24](
+		bEvent := RxAndTxData.nMcStatusWord_1.12,
+		nEventID := 16#2018,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[12](CLK := RxAndTxData.nMcStatusWord_1.12);
+	fbMcStatusEvents[25](
+		bEvent := fbMcSignalFalingStatus[12].Q,
+		nEventID := 16#2019,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[26](
+		bEvent := RxAndTxData.nMcStatusWord_1.13,
+		nEventID := 16#201A,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[13](CLK := RxAndTxData.nMcStatusWord_1.13);
+	fbMcStatusEvents[27](
+		bEvent := fbMcSignalFalingStatus[13].Q,
+		nEventID := 16#201B,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[28](
+		bEvent := RxAndTxData.nMcStatusWord_1.14,
+		nEventID := 16#201C,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[14](CLK := RxAndTxData.nMcStatusWord_1.14);
+	fbMcStatusEvents[29](
+		bEvent := fbMcSignalFalingStatus[14].Q,
+		nEventID := 16#201D,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[30](
+		bEvent := RxAndTxData.nMcStatusWord_2.0,
+		nEventID := 16#201E,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[15](CLK := RxAndTxData.nMcStatusWord_2.0);
+	fbMcStatusEvents[31](
+		bEvent := fbMcSignalFalingStatus[15].Q,
+		nEventID := 16#201F,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[32](
+		bEvent := RxAndTxData.nMcStatusWord_2.1,
+		nEventID := 16#2020,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[16](CLK := RxAndTxData.nMcStatusWord_2.1);
+	fbMcStatusEvents[33](
+		bEvent := fbMcSignalFalingStatus[16].Q,
+		nEventID := 16#2021,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[34](
+		bEvent := RxAndTxData.nMcStatusWord_2.2,
+		nEventID := 16#2022,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[17](CLK := RxAndTxData.nMcStatusWord_2.2);
+	fbMcStatusEvents[35](
+		bEvent := fbMcSignalFalingStatus[17].Q,
+		nEventID := 16#2023,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[36](
+		bEvent := RxAndTxData.nMcStatusWord_2.3,
+		nEventID := 16#2024,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[18](CLK := RxAndTxData.nMcStatusWord_2.3);
+	fbMcStatusEvents[37](
+		bEvent := fbMcSignalFalingStatus[18].Q,
+		nEventID := 16#2025,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[38](
+		bEvent := RxAndTxData.nMcStatusWord_2.4,
+		nEventID := 16#2026,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[19](CLK := RxAndTxData.nMcStatusWord_2.4);
+	fbMcStatusEvents[39](
+		bEvent := fbMcSignalFalingStatus[19].Q,
+		nEventID := 16#2027,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[40](
+		bEvent := RxAndTxData.nMcStatusWord_2.5,
+		nEventID := 16#2028,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[20](CLK := RxAndTxData.nMcStatusWord_2.5);
+	fbMcStatusEvents[41](
+		bEvent := fbMcSignalFalingStatus[20].Q,
+		nEventID := 16#2029,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[42](
+		bEvent := RxAndTxData.nMcStatusWord_2.6,
+		nEventID := 16#202A,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[21](CLK := RxAndTxData.nMcStatusWord_2.6);
+	fbMcStatusEvents[43](
+		bEvent := fbMcSignalFalingStatus[21].Q,
+		nEventID := 16#202B,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[44](
+		bEvent := RxAndTxData.nMcStatusWord_2.7,
+		nEventID := 16#202C,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[22](CLK := RxAndTxData.nMcStatusWord_2.7);
+	fbMcStatusEvents[45](
+		bEvent := fbMcSignalFalingStatus[22].Q,
+		nEventID := 16#202D,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[46](
+		bEvent := RxAndTxData.nMcStatusWord_2.8,
+		nEventID := 16#202E,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[23](CLK := RxAndTxData.nMcStatusWord_2.8);
+	fbMcStatusEvents[47](
+		bEvent := fbMcSignalFalingStatus[23].Q,
+		nEventID := 16#202F,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[48](
+		bEvent := RxAndTxData.nMcStatusWord_2.9,
+		nEventID := 16#2030,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[24](CLK := RxAndTxData.nMcStatusWord_2.9);
+	fbMcStatusEvents[49](
+		bEvent := fbMcSignalFalingStatus[24].Q,
+		nEventID := 16#2031,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[50](
+		bEvent := RxAndTxData.nMcStatusWord_2.10,
+		nEventID := 16#2032,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[25](CLK := RxAndTxData.nMcStatusWord_2.10);
+	fbMcStatusEvents[51](
+		bEvent := fbMcSignalFalingStatus[25].Q,
+		nEventID := 16#2033,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[52](
+		bEvent := RxAndTxData.nMcStatusWord_2.11,
+		nEventID := 16#2034,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[26](CLK := RxAndTxData.nMcStatusWord_2.11);
+	fbMcStatusEvents[53](
+		bEvent := fbMcSignalFalingStatus[26].Q,
+		nEventID := 16#2035,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[54](
+		bEvent := RxAndTxData.nMcStatusWord_2.12,
+		nEventID := 16#2036,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[27](CLK := RxAndTxData.nMcStatusWord_2.12);
+	fbMcStatusEvents[55](
+		bEvent := fbMcSignalFalingStatus[27].Q,
+		nEventID := 16#2037,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[56](
+		bEvent := RxAndTxData.nMcStatusWord_2.13,
+		nEventID := 16#2038,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[28](CLK := RxAndTxData.nMcStatusWord_2.13);
+	fbMcStatusEvents[57](
+		bEvent := fbMcSignalFalingStatus[28].Q,
+		nEventID := 16#2039,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[58](
+		bEvent := RxAndTxData.nMcStatusWord_2.14,
+		nEventID := 16#203A,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[29](CLK := RxAndTxData.nMcStatusWord_2.14);
+	fbMcStatusEvents[59](
+		bEvent := fbMcSignalFalingStatus[29].Q,
+		nEventID := 16#203B,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	fbMcStatusEvents[60](
+		bEvent := RxAndTxData.nMcStatusWord_2.15,
+		nEventID := 16#203C,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);	
+ 	
+	fbMcSignalFalingStatus[30](CLK := RxAndTxData.nMcStatusWord_2.16);
+	fbMcStatusEvents[61](
+		bEvent := fbMcSignalFalingStatus[30].Q,
+		nEventID := 16#203D,
+		sSource := 'Machince Converter Event',
+		sArgument1 := 'MC',
+		sArgument2 := '1'
+	);
+	]]></ST>
+      </Implementation>
+    </Action>
+  </POU>
+</TcPlcObject>

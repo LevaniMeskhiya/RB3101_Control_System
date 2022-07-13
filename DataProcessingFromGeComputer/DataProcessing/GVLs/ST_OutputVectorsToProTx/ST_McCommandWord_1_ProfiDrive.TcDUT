@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_McCommandWord_1_ProfiDrive" Id="{baecb3cf-b872-4fd0-a8ec-7cd66b310653}">
+    <Declaration><![CDATA[TYPE ST_McCommandWord_1_ProfiDrive :
+STRUCT
+	Bit00_OnOff 					: BOOL;
+	Bit01_DriveRelease				: BOOL;
+	Bit02_FastStop 					: BOOL; // FALCE - forces QuickStop
+	Bit03_PulceRelease 				: BOOL;
+	Bit04_EnableRump				: BOOL; // TRUE - Select ramp output as reference; FALCE - select other reference source - may be zero 
+	Bit05_UnlockRump				: BOOL; // TRUE - Ramp output shall follow ramp input; FALCE - Ramp output shall be locked to current output value
+	Bit06_Forward					: BOOL;
+	Bit07_Quit						: BOOL;
+	Bit08_Inching1					: BOOL;
+	Bit09_Inching2					: BOOL;
+	Bit10_ControlByPlc				: BOOL;
+	Bit11_ParSetChangeOverBit00		: BOOL;
+	Bit12_ParSetChangeOverBit01		: BOOL;
+	Bit13_ParSetChangeOverBit02		: BOOL;
+	Bit14_ParSetChangeOverBit03		: BOOL;
+	Bit15_MainAliveToggle			: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

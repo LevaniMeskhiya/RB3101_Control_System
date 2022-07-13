@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_PrepareInputVectorsFromProTxCovnerter" Id="{d7d4e01d-b251-4bc7-a0db-a21b34f49ad3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PrepareInputVectorsFromProTxCovnerter
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	wLcStatusWord_1 				: WORD;
+	wLcStatusWord_2					: WORD;
+	wMcStatusWord_1 				: WORD;
+	wMcStatusWord_2					: WORD;
+	wLcFaultWord1					: WORD; // write description
+	wLcFaultWord2					: WORD;
+	wLcFaultWord3					: WORD;
+	wLcFaultWord4					: WORD;
+	wMcFaultWord1					: WORD;
+	wMcFaultWord2					: WORD;
+	wMcFaultWord3					: WORD;
+	wMcFaultWord4					: WORD;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[/// Converting Integer Inputs from UDINT to Word {{{
+	wLcStatusWord_1 := TO_WORD(RxAndTxData.nLcStatusWord_1);
+	wLcStatusWord_2 := TO_WORD(RxAndTxData.nLcStatusWord_2);
+	wMcStatusWord_1 := TO_WORD(RxAndTxData.nMcStatusWord_1);
+	wMcStatusWord_2 := TO_WORD(RxAndTxData.nMcStatusWord_2);
+	
+///}}}
+
+/// Converting the LC Status Word 1 from UDINT to Structure {{{
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit00_StateReady 				:= wLcStatusWord_1.0;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit01_StateOn 					:= wLcStatusWord_1.1;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit02_CtrlRun 					:= wLcStatusWord_1.2;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit03_CollFault 				:= wLcStatusWord_1.3;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit04_DriveReleaseActive 		:= wLcStatusWord_1.4;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit05_StatePowerOk 			:= wLcStatusWord_1.5;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit06_StateDisable 			:= wLcStatusWord_1.6;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit07_Warning 					:= wLcStatusWord_1.7;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit08_PhaseLoss 				:= wLcStatusWord_1.8;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit09_BusSelected 				:= wLcStatusWord_1.9;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit10_uu 						:= wLcStatusWord_1.10;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit11_uu 						:= wLcStatusWord_1.11;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit12_ReleaseMc 				:= wLcStatusWord_1.12;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit13_StateTestModeOn 			:= wLcStatusWord_1.13;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit14_InternalAliveToggle 		:= wLcStatusWord_1.14;
+	StatusAndCommandWordsStructures.stLcStatusWord_1.Bit15_MainAliveToggle 			:= wLcStatusWord_1.15;
+///}}}
+
+/// Converting the LC Status Word 2 from UDINT to Structure {{{
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit00_FaultB					:= wLcStatusWord_2.0;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit01_FaultC					:= wLcStatusWord_2.1;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit02_FaultC 					:= wLcStatusWord_2.2;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit03_FaultDWarning 			:= wLcStatusWord_2.3;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit04_TrafoOvertempWarning		:= wLcStatusWord_2.4;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit05_TrafoInsolationWarning	:= wLcStatusWord_2.5;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit06_uu						:= wLcStatusWord_2.6;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit07_uu						:= wLcStatusWord_2.7;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit08_uu						:= wLcStatusWord_2.8;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit09_uu						:= wLcStatusWord_2.9;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit10_ThHSWarning				:= wLcStatusWord_2.10;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit11_ThHSMaxWarning			:= wLcStatusWord_2.11;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit12_ParSetBit00				:= wLcStatusWord_2.12;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit13_ParSetBit01				:= wLcStatusWord_2.13;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit14_ParSetBit02				:= wLcStatusWord_2.14;
+	StatusAndCommandWordsStructures.stLcStatusWord_2.Bit15_ParSetBit03				:= wLcStatusWord_2.15;
+///}}}
+
+/// Converting the MC Status Word 1 from UDINT to Structure {{{
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit00_StateReady 				:= wMcStatusWord_1.0;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit01_StateOn  				:= wMcStatusWord_1.1;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit02_CtrlRun  				:= wMcStatusWord_1.2;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit03_CollFault  				:= wMcStatusWord_1.3;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit04_DriveReleaseActive  		:= wMcStatusWord_1.4;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit05_StateFastStop  			:= wMcStatusWord_1.5;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit06_StateDisable	 			:= wMcStatusWord_1.6;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit07_Warning  				:= wMcStatusWord_1.7;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit08_SpeedCtrlLimited	 		:= wMcStatusWord_1.8;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit09_BusSelected  			:= wMcStatusWord_1.9;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit10_XnIsEqualToWn  			:= wMcStatusWord_1.10;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit11_WiqTLimited  			:= wMcStatusWord_1.11;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit12_XnIsEqualToZero  		:= wMcStatusWord_1.12;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit13_NCtrlenable  			:= wMcStatusWord_1.13;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit14_ExtrnalTorqueRelease  	:= wMcStatusWord_1.14;
+	StatusAndCommandWordsStructures.stMcStatusWord_1.Bit15_MainAliveToggle  		:= wMcStatusWord_1.15;
+///}}}
+
+/// Converting the MC Status Word 2 from UDINT to Structure {{{
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit00_FaultB 					:= wMcStatusWord_2.0;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit01_FaultC 					:= wMcStatusWord_2.1;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit02_FaultC 					:= wMcStatusWord_2.2;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit03_FaultDWarning 			:= wMcStatusWord_2.3;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit04_MRegActive 				:= wMcStatusWord_2.4;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit05_torqueRegEnable 			:= wMcStatusWord_2.5;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit06_ConverterI2tLinitWarning := wMcStatusWord_2.6;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit07_ConverterI2tLinitActive 	:= wMcStatusWord_2.7;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit08_MotorI2tLinitWarning 	:= wMcStatusWord_2.8;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit09_MotorI2tLinitActive 		:= wMcStatusWord_2.9;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit10_ThHSWarning 				:= wMcStatusWord_2.10;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit11_ThHSMaxWarning 			:= wMcStatusWord_2.11;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit12_windingTempWarning 		:= wMcStatusWord_2.12;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit13_BearingTempWarning 		:= wMcStatusWord_2.13;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit14_Forward 					:= wMcStatusWord_2.14;
+	StatusAndCommandWordsStructures.stMcStatusWord_2.Bit15_Reverse 					:= wMcStatusWord_2.15;
+///}}}
+
+/// Writing Output Real Vector Into the Structure {{{
+	
+///}}}
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_PrepareInputVectorsFromProTxCovnerter">
+      <LineId Id="128" Count="0" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="133" Count="2" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="130" Count="0" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="136" Count="14" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="97" Count="1" />
+      <LineId Id="152" Count="14" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="101" Count="1" />
+      <LineId Id="167" Count="5" />
+      <LineId Id="182" Count="0" />
+      <LineId Id="174" Count="7" />
+      <LineId Id="103" Count="3" />
+      <LineId Id="183" Count="14" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="198" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="74" Count="1" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="77" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

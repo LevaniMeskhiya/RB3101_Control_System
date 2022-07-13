@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="StatusAndCommandWordsStructures" Id="{e7f26d11-c23a-4403-85c6-fe3d7cf00320}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	(* Recieved Status and Fault Words*)
+	stLcStatusWord_1 	: ST_LcStatusWord_1_ProfiDrive;
+	stLcStatusWord_2 	: ST_LcStatusWord_2_ProfiDrive;
+	stMcStatusWord_1 	: ST_McStatusWord_1_ProfiDrive;
+	stMcStatusWord_2 	: ST_McStatusWord_2_ProfiDrive;
+	
+	stLcFaultWord1 		: ST_LcFaultWord1;
+	stLcFaultWord2 		: ST_LcFaultWord2;
+	stLcFaultWord3 		: ST_LcFaultWord3;
+	stLcFaultWord4 		: ST_LcFaultWord4;
+	stMcFaultWord1 		: ST_McFaultWord1;
+	stMcFaultWord2 		: ST_McFaultWord2;
+	stMcFaultWord3 		: ST_McFaultWord3;
+	stMcFaultWord4 		: ST_McFaultWord4;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

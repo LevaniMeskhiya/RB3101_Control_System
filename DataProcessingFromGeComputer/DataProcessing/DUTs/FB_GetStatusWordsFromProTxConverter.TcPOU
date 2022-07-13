@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_GetStatusWordsFromProTxConverter" Id="{b0969b3b-56b0-437a-b350-4a7594cd7146}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_GetStatusWordsFromProTxConverter
+VAR_INPUT
+    stOutputVectorInteger : ST_OutputVectorInteger1;
+    stOutputVectorReal : ST_OutputVectorReal1;
+END_VAR
+VAR
+    stLcMainStatusWord : ST_LcStatusWord_1_ProfiDrive;
+    stMcMainStatusWord : ST_McStatusWord_1_ProfiDrive;
+    stLcAuxiliaryStatusWord : ST_LcStatusWord_2_ProfiDrive;
+    stMcAuxiliaryStatusWord : ST_LcStatusWord_2_ProfiDrive;
+    
+    wLcMainStatusWord : WORD;
+    wMcMainStatusWord : WORD;
+    wLcAuxiliaryStatusWord : WORD;
+    wMcAuxiliaryStatusWord : WORD;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[wLcMainStatusWord := TO_WORD(TO_INT(stOutputVectorInteger.Element00_LcMainStatusWord));
+wMcMainStatusWord := TO_WORD(TO_INT(stOutputVectorInteger.Element01_LcAuxiliaryStatusWord));
+wLcAuxiliaryStatusWord := TO_WORD(TO_INT(stOutputVectorInteger.Element12_McMainStatusWord));
+wMcAuxiliaryStatusWord := TO_WORD(TO_INT(stOutputVectorInteger.Element13_McAuxiliaryStatusWord));
+
+/// Copyng LC Main Status Word Into Structure {{{
+RxAndTxData.stLcMainStatusWord.Bit00_StateReady := wLcMainStatusWord.0;
+RxAndTxData.stLcMainStatusWord.Bit01_StateOn := wLcMainStatusWord.1;
+RxAndTxData.stLcMainStatusWord.Bit02_CtrlRun := wLcMainStatusWord.2;
+RxAndTxData.stLcMainStatusWord.Bit03_CollFault := wLcMainStatusWord.3;
+RxAndTxData.stLcMainStatusWord.Bit04_DriveReleaseActive := wLcMainStatusWord.4;
+RxAndTxData.stLcMainStatusWord.Bit05_StatePowerOk := wLcMainStatusWord.5;
+RxAndTxData.stLcMainStatusWord.Bit06_StateDisable := wLcMainStatusWord.6;
+RxAndTxData.stLcMainStatusWord.Bit07_Warning := wLcMainStatusWord.7;
+RxAndTxData.stLcMainStatusWord.Bit08_PhaseLoss := wLcMainStatusWord.8;
+RxAndTxData.stLcMainStatusWord.Bit09_BusSelected := wLcMainStatusWord.9;
+RxAndTxData.stLcMainStatusWord.Bit10_uu := wLcMainStatusWord.10;
+RxAndTxData.stLcMainStatusWord.Bit11_uu := wLcMainStatusWord.11;
+RxAndTxData.stLcMainStatusWord.Bit12_ReleaseMc := wLcMainStatusWord.12;
+RxAndTxData.stLcMainStatusWord.Bit13_StateTestModeOn := wLcMainStatusWord.13;
+RxAndTxData.stLcMainStatusWord.Bit14_InternalAliveToggle := wLcMainStatusWord.14;
+RxAndTxData.stLcMainStatusWord.Bit15_MainAliveToggle := wLcMainStatusWord.15;
+///}}}
+
+/// Copyng LC Auxiliary Status Word Into Structure {{{
+RxAndTxData.stLcAuxiliaryStatusWord.Bit00_FaultB := wLcAuxiliaryStatusWord.0;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit01_FaultC := wLcAuxiliaryStatusWord.1;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit02_FaultC := wLcAuxiliaryStatusWord.2;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit03_FaultDWarning := wLcAuxiliaryStatusWord.3;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit04_TrafoOvertempWarning := wLcAuxiliaryStatusWord.4;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit05_TrafoInsolationWarning := wLcAuxiliaryStatusWord.5;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit06_uu := wLcAuxiliaryStatusWord.6;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit07_uu := wLcAuxiliaryStatusWord.7;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit08_uu := wLcAuxiliaryStatusWord.8;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit09_uu := wLcAuxiliaryStatusWord.9;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit10_ThHSWarning := wLcAuxiliaryStatusWord.10;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit11_ThHSMaxWarning := wLcAuxiliaryStatusWord.11;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit12_ParSetBit00 := wLcAuxiliaryStatusWord.12;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit13_ParSetBit01 := wLcAuxiliaryStatusWord.13;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit14_ParSetBit02 := wLcAuxiliaryStatusWord.14;
+RxAndTxData.stLcAuxiliaryStatusWord.Bit15_ParSetBit03 := wLcAuxiliaryStatusWord.15;    
+///}}}
+
+/// Copyng MC Main Status Word Into Structure {{{
+RxAndTxData.stMcMainStatusWord.Bit00_StateReady := wMcMainStatusWord.0;
+RxAndTxData.stMcMainStatusWord.Bit01_StateOn := wMcMainStatusWord.1;
+RxAndTxData.stMcMainStatusWord.Bit02_CtrlRun := wMcMainStatusWord.2;
+RxAndTxData.stMcMainStatusWord.Bit03_CollFault := wMcMainStatusWord.3;
+RxAndTxData.stMcMainStatusWord.Bit04_DriveReleaseActive := wMcMainStatusWord.4;
+RxAndTxData.stMcMainStatusWord.Bit05_StateFastStop := wMcMainStatusWord.5;
+RxAndTxData.stMcMainStatusWord.Bit06_StateDisable := wMcMainStatusWord.6;
+RxAndTxData.stMcMainStatusWord.Bit07_Warning := wMcMainStatusWord.7;
+RxAndTxData.stMcMainStatusWord.Bit08_SpeedCtrlLimited := wMcMainStatusWord.8;
+RxAndTxData.stMcMainStatusWord.Bit09_BusSelected := wMcMainStatusWord.9;
+RxAndTxData.stMcMainStatusWord.Bit10_XnIsEqualToWn := wMcMainStatusWord.10;
+RxAndTxData.stMcMainStatusWord.Bit11_WiqTLimited := wMcMainStatusWord.11;
+RxAndTxData.stMcMainStatusWord.Bit12_XnIsEqualToZero := wMcMainStatusWord.12;
+RxAndTxData.stMcMainStatusWord.Bit13_NCtrlenable := wMcMainStatusWord.13;
+RxAndTxData.stMcMainStatusWord.Bit14_ExtrnalTorqueRelease := wMcMainStatusWord.14;
+RxAndTxData.stMcMainStatusWord.Bit15_MainAliveToggle := wMcMainStatusWord.15;
+///}}}
+
+/// Copyng MC Auxiliary Status Word Into Structure {{{    
+RxAndTxData.stMcAuxiliaryStatusWord.Bit00_FaultB := wMcAuxiliaryStatusWord.0;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit01_FaultC := wMcAuxiliaryStatusWord.1;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit02_FaultC := wMcAuxiliaryStatusWord.2;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit03_FaultDWarning := wMcAuxiliaryStatusWord.3;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit04_TrafoOvertempWarning := wMcAuxiliaryStatusWord.4;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit05_TrafoInsolationWarning := wMcAuxiliaryStatusWord.5;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit06_uu := wMcAuxiliaryStatusWord.6;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit07_uu := wMcAuxiliaryStatusWord.7;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit08_uu := wMcAuxiliaryStatusWord.8;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit09_uu := wMcAuxiliaryStatusWord.9;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit10_ThHSWarning := wMcAuxiliaryStatusWord.10;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit11_ThHSMaxWarning := wMcAuxiliaryStatusWord.11;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit12_ParSetBit00 := wMcAuxiliaryStatusWord.12;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit13_ParSetBit01 := wMcAuxiliaryStatusWord.13;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit14_ParSetBit02 := wMcAuxiliaryStatusWord.14;
+RxAndTxData.stMcAuxiliaryStatusWord.Bit15_ParSetBit03 := wMcAuxiliaryStatusWord.15;        
+///}}}
+
+(*    
+// Copyng Output Integer and real Structure Data into Global Variable
+RxAndTxData.stLcMainStatusWord := stLcMainStatusWord;
+RxAndTxData.stMcMainStatusWord := stMcMainStatusWord;
+RxAndTxData.stLcAuxiliaryStatusWord := stLcAuxiliaryStatusWord;
+RxAndTxData.stMcAuxiliaryStatusWord := stMcAuxiliaryStatusWord;
+*)]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,180 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{62bd5c57-94a9-45cf-b474-5a25ba973a61}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>true</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>DataProcessing</Name>
+    <ProgramVersion>3.1.4023.0</ProgramVersion>
+    <Application>{5a88c45f-7fde-4e7a-88b3-e28b7b2222dc}</Application>
+    <TypeSystem>{a08699cb-d8a8-4699-a446-24236f0633a7}</TypeSystem>
+    <Implicit_Task_Info>{52bd69da-256a-411e-849c-40a97831ad6f}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{bef628f1-cad2-41ea-bdd6-c3843ee3ba84}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{71baca0f-7564-425e-acea-67d570b34d02}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{66a962b9-5b68-4894-9e19-6d6927cdc84b}</LibraryReferences>
+    <Released>false</Released>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DUTs\FB_GetFaultWordsFromProtxConverter.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\FB_PrepareOutputVectorsToProTxConverter.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\FB_PrepareInputVectorsFromProTxCovnerter.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\FB_GetStatusWordsFromProTxConverter.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerations\E_DriveProfile.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventLogger\FunctionBlocks\Common\P_EventLogger.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventLogger\FunctionBlocks\Common\P_Timer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventLogger\FunctionBlocks\FB_EventMessage.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventLogger\FunctionBlocks\FB_EventAlarm.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ConfigurationParameters.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\RxAndTxData.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\StatusAndCommandWordsStructures.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\ST_OutputVectorsToProTx\ST_OutputVectorReal.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_OutputVectorsToProTx\ST_LcCommandWord_ProfiDrive.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_OutputVectorsToProTx\ST_McCommandWord_1_ProfiDrive.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_OutputVectorsToProTx\ST_McCommandWord_2_ProfiDrive.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords\ST_LcFaultWord1.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords\ST_LcFaultWord2.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords\ST_LcFaultWord3.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords\ST_LcFaultWord4.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords\ST_McFaultWord1.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords\ST_McFaultWord2.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords\ST_McFaultWord3.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords\ST_McFaultWord4.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_LcStatusWord_2_ProfiDrive.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_McStatusWord_2_ProfiDrive.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_LcStatusWord_1_ProfiDrive.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_McStatusWord_1_ProfiDrive.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ST_InputVectorsFromProTx\ST_OutputVectorReal1.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\UtilityVariables.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DUTs" />
+    <Folder Include="EventLogger\FunctionBlocks" />
+    <Folder Include="EventLogger\FunctionBlocks\Common" />
+    <Folder Include="GVLs" />
+    <Folder Include="GVLs\ST_InputVectorsFromProTx" />
+    <Folder Include="GVLs\ST_OutputVectorsToProTx" />
+    <Folder Include="GVLs\ST_InputVectorsFromProTx\ST_FaultWords" />
+    <Folder Include="EventLogger" />
+    <Folder Include="Enumerations" />
+    <Folder Include="VISUs" />
+    <Folder Include="POUs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc2_Standard">
+      <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_Utilities">
+      <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Utilities</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_EventLogger">
+      <DefaultResolution>Tc3_EventLogger, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_EventLogger</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_Module">
+      <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataProcessing.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <PlcProjectOptions>
+      <XmlArchive>
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
+      <v n="Name">"&lt;ProjectRoot&gt;"</v>
+      <d n="SubKeys" t="Hashtable" />
+      <d n="Values" t="Hashtable" />
+    </o>
+        </Data>
+        <TypeList>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
+    </PlcProjectOptions>
+  </ProjectExtensions>
+</Project>

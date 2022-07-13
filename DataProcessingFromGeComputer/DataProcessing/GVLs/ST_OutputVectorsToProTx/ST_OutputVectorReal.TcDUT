@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_OutputVectorReal" Id="{a5fa9831-33d6-4f67-a1ec-3f892f71d62b}">
+    <Declaration><![CDATA[TYPE ST_OutputVectorReal :
+STRUCT
+	OutputPDO_1 			: REAL; // LC Iq_ref and  MC torque or current
+	OutputPDO_2 			: REAL; // MC speed or voltge
+	OutputPDO_3				: REAL; // Mc act. torque or power
+	OutputPDO_4				: REAL; // MC Ext Torque Limmit_motor or Charge current limmit
+	OutputPDO_5				: REAL; // MC Ext Torque Limmit_gen or Discharge current limmit
+	OutputPDO_6				: REAL; // MC Speed regulation bias and Cable resistor in Ohm
+	OutputPDO_7				: REAL; // MC Speed limmit and Max output votltage switch off value in V
+	OutputPDO_8				: REAL; // MC Jrequest and and Min output votltage switch off value in V
+	OutputPDO_9				: REAL; // MC Max output current switch off value in A and ETPS value for number of cylinders
+	OutputPDO_10			: REAL;	// MC Min output current switch off value in A and scaled ETPS torque M1
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>
